@@ -23,10 +23,13 @@
   --clsoft:#FBEDE8;
   --f:"Golos Text","Helvetica Neue",Arial,sans-serif;
 
+  /* 14px только для источников, навигации и служебных подписей */
   --fs-min:14px;
-  --fs-body:clamp(15px,1.85vh,19px);
-  --fs-lede:clamp(16px,2.15vh,22px);
-  --fs-h3:clamp(18px,2.5vh,27px);
+  /* вторичный, но читаемый со сцены содержательный текст */
+  --fs-sec:clamp(16px,1.95vh,19px);
+  --fs-body:clamp(16px,2.05vh,20px);
+  --fs-lede:clamp(17px,2.2vh,23px);
+  --fs-h3:clamp(19px,2.6vh,28px);
   --fs-h2:clamp(26px,4.2vh,46px);
   --fs-h1:clamp(34px,6.9vh,74px);
 }
@@ -43,8 +46,8 @@ body{font-family:var(--f); color:var(--ink); font-size:16px; -webkit-font-smooth
 .s-foot{flex:none; min-height:2vh}
 
 .eyebrow{
-  font-size:var(--fs-min); font-weight:500; letter-spacing:.04em;
-  color:var(--ink3); display:flex; gap:16px; align-items:baseline; margin-bottom:1.4vh;
+  font-size:clamp(15px,1.8vh,17px); font-weight:500; letter-spacing:.02em;
+  color:var(--ink2); display:flex; gap:16px; align-items:baseline; margin-bottom:1.4vh;
 }
 .eyebrow b{color:var(--ac); font-weight:600}
 .eyebrow .sp{margin-left:auto}
@@ -102,7 +105,7 @@ h3{font-weight:600; font-size:var(--fs-h3); line-height:1.16; letter-spacing:-.0
 
 /* ---------- общие элементы ---------- */
 .chip{
-  display:inline-flex; align-items:center; font-size:var(--fs-min); font-weight:500;
+  display:inline-flex; align-items:center; font-size:var(--fs-sec); font-weight:500;
   border:1px solid; border-radius:3px; padding:5px 11px; white-space:nowrap; line-height:1.2;
 }
 .chip[data-t="v"]{color:var(--ac); border-color:var(--ac3); background:var(--acsoft)}
@@ -110,35 +113,35 @@ h3{font-weight:600; font-size:var(--fs-h3); line-height:1.16; letter-spacing:-.0
 .chip[data-t="m"]{color:var(--ink2); border-color:var(--rule2); background:var(--soft)}
 .chip[data-t="f"]{color:var(--cl); border-color:var(--cl); background:var(--clsoft)}
 
-.lbl{font-size:var(--fs-min); font-weight:600; letter-spacing:.03em; color:var(--ink3)}
+.lbl{font-size:clamp(17px,2.1vh,20px); font-weight:600; letter-spacing:.02em; color:var(--ink2)}
 .lbl.ac{color:var(--ac)}
 
 svg.viz{width:100%; height:100%; max-height:100%; display:block}
 svg text{font-family:var(--f)}
 .t-lbl{fill:var(--ink); font-size:19px; font-weight:600}
-.t-sub{fill:var(--ink2); font-size:17px; font-weight:400}
+.t-sub{fill:var(--ink2); font-size:18px; font-weight:400}
 .t-code{fill:var(--ac); font-size:19px; font-weight:700}
-.t-ax{fill:var(--ink3); font-size:17px; font-weight:500}
+.t-ax{fill:var(--ink2); font-size:18px; font-weight:500}
 
 /* ---------- титул ---------- */
 .hero{display:grid; grid-template-columns:1.12fr .88fr; gap:clamp(24px,4vw,64px); align-items:center; width:100%}
 .hero-stats{display:flex; gap:clamp(20px,3vw,48px); margin-top:3.4vh; padding-top:2vh; border-top:2px solid var(--ink)}
 .hero-stats div{display:flex; flex-direction:column; gap:4px}
 .hero-stats em{font-style:normal; font-weight:700; font-size:clamp(22px,3.8vh,38px); color:var(--ac); line-height:1}
-.hero-stats span{font-size:var(--fs-min); font-weight:500; color:var(--ink3)}
+.hero-stats span{font-size:var(--fs-sec); font-weight:500; color:var(--ink2)}
 .board{border:1px solid var(--rule); background:var(--white); box-shadow:0 22px 54px -36px rgba(12,20,22,.5)}
-.board-h{font-size:var(--fs-min); font-weight:600; letter-spacing:.03em; color:var(--ink3); padding:1.4vh 16px; border-bottom:1px solid var(--rule)}
+.board-h{font-size:var(--fs-sec); font-weight:600; letter-spacing:.02em; color:var(--ink2); padding:1.4vh 16px; border-bottom:1px solid var(--rule)}
 .board-s{padding:1.4vh 14px}
 .board-s+.board-s{border-top:1px solid var(--rule)}
-.board-l{font-size:var(--fs-min); font-weight:600; color:var(--ac); margin-bottom:1vh}
+.board-l{font-size:var(--fs-sec); font-weight:600; color:var(--ac); margin-bottom:1vh}
 .cellrow{display:grid; gap:6px}
 .cell{
   display:flex; align-items:baseline; gap:12px; text-align:left; width:100%;
   border:1px solid var(--rule); background:var(--soft); padding:1.05vh 12px; cursor:pointer; border-radius:3px;
-  font-family:var(--f); font-size:var(--fs-min); font-weight:500; color:var(--ink2); line-height:1.3;
+  font-family:var(--f); font-size:var(--fs-sec); font-weight:500; color:var(--ink2); line-height:1.3;
   transition:border-color .16s, background .16s, color .16s, transform .16s;
 }
-.cell code{font-family:var(--f); font-size:var(--fs-min); font-weight:700; color:var(--ac); flex:none}
+.cell code{font-family:var(--f); font-size:var(--fs-sec); font-weight:700; color:var(--ac); flex:none}
 .cell:hover{border-color:var(--ac); background:var(--acsoft); color:var(--ink); transform:translateX(3px)}
 
 /* ---------- плитки ---------- */
@@ -151,7 +154,7 @@ svg text{font-family:var(--f)}
 .tile:hover{border-color:var(--ac); box-shadow:0 18px 36px -28px rgba(12,20,22,.55); transform:translateY(-3px)}
 .tile .ico{flex:none; height:clamp(40px,6.4vh,60px)}
 .tile .ico svg{height:100%; width:auto; display:block}
-.tile .code{font-size:var(--fs-min); font-weight:700; color:var(--ac); letter-spacing:.05em}
+.tile .code{font-size:var(--fs-sec); font-weight:700; color:var(--ac); letter-spacing:.04em}
 .tile p{margin:0; font-size:var(--fs-body); line-height:1.44; color:var(--ink2); flex:1; min-height:0}
 
 /* ---------- разрыв ---------- */
@@ -159,7 +162,7 @@ svg text{font-family:var(--f)}
 .gapname{font-weight:700; font-size:var(--fs-h3); line-height:1.12; text-align:right}
 .gapbar{display:flex; height:clamp(52px,8.4vh,86px); border:1px solid var(--rule); border-radius:3px; overflow:hidden}
 .gapseen{flex:none; background:var(--ac); display:flex; align-items:center; padding:0 clamp(12px,1.4vw,20px)}
-.gapseen span{color:var(--white); font-size:var(--fs-min); font-weight:600; line-height:1.3}
+.gapseen span{color:var(--white); font-size:var(--fs-sec); font-weight:600; line-height:1.3}
 .gapblind{
   flex:1; display:flex; align-items:center; padding:0 clamp(14px,1.6vw,24px); background:var(--soft);
   background-image:repeating-linear-gradient(-45deg,transparent 0 7px,rgba(12,20,22,.08) 7px 8px);
@@ -176,7 +179,7 @@ svg text{font-family:var(--f)}
 .causes{display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(10px,1.3vw,18px); width:100%}
 .cause{border:1px solid var(--rule); border-top:3px solid var(--ac); border-radius:3px; padding:clamp(14px,2vh,20px); background:var(--white)}
 .cause .h{font-size:var(--fs-h3); font-weight:600; line-height:1.14; margin-bottom:.9vh}
-.cause p{margin:0; font-size:var(--fs-min); line-height:1.4; color:var(--ink2)}
+.cause p{margin:0; font-size:var(--fs-sec); line-height:1.42; color:var(--ink2)}
 
 .metrics{display:flex; flex-wrap:wrap; gap:9px}
 
@@ -188,13 +191,12 @@ svg text{font-family:var(--f)}
 }
 .nda .big{font-size:var(--fs-h3); font-weight:700; line-height:1.2; color:var(--ink); flex:1; min-width:280px}
 .nda p{margin:0; font-size:var(--fs-body); line-height:1.42; color:var(--ink2); flex:1; min-width:260px}
-.finsteps{display:grid; grid-template-columns:repeat(5,1fr); gap:clamp(10px,1.3vw,18px)}
+.finsteps{display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(12px,1.5vw,22px)}
 .fs{display:flex; flex-direction:column; gap:.9vh; border-top:2px solid var(--rule2); padding-top:1.4vh}
 .fs[data-hot="1"]{border-top-color:var(--ac)}
 .fs .n{font-size:var(--fs-body); font-weight:700; color:var(--ac); font-variant-numeric:tabular-nums}
-.fs .t{font-size:var(--fs-h3); font-weight:600; line-height:1.14}
-.fs .w{font-size:var(--fs-min); font-weight:500; color:var(--ink3)}
-.fs p{margin:0; font-size:var(--fs-min); line-height:1.42; color:var(--ink2)}
+.fs .w{font-size:var(--fs-sec); font-weight:500; color:var(--ink3)}
+.fs p{margin:0; font-size:var(--fs-sec); line-height:1.44; color:var(--ink2)}
 
 @media (max-width:960px){
   .hero,.causes,.finsteps{grid-template-columns:1fr}
@@ -265,19 +267,19 @@ const IC = {
 
 const IDEAS = [
   {id:'A1', u:'МегаЩит', t:'Автоматизация поиска замены охранника',
-   p:'Система автоматически отбирает подходящих сотрудников и ускоряет поиск замены при невыходе охранника.', m:'Готово к пилоту'},
+   p:'Система автоматически отбирает подходящих сотрудников и ускоряет поиск замены при невыходе охранника.', m:'Прототип готов'},
   {id:'A2', u:'МегаЩит', t:'Единый трекер допусков',
-   p:'Система заранее отслеживает сроки документов и исключает сотрудников с просроченными допусками из доступных замен.', m:'Готово к пилоту'},
+   p:'Система заранее отслеживает сроки документов и исключает сотрудников с просроченными допусками из доступных замен.', m:''},
   {id:'A3', u:'МегаЩит', t:'Структурированная оперативная отчётность',
-   p:'Рапорты заполняются через стандартную форму, поэтому данные автоматически агрегируются по объектам и типам событий.', m:'Можно внедрять'},
+   p:'Рапорты заполняются через стандартную форму, поэтому данные автоматически агрегируются по объектам и типам событий.', m:''},
   {id:'A4', u:'МегаЩит', t:'Контроль расхода топлива по ГЛОНАСС',
-   p:'Система сравнивает фактический расход с нормативом и автоматически выделяет автомобили с аномальными отклонениями.', m:'Можно внедрять'},
+   p:'Система сравнивает фактический расход с расчётной нормой и выделяет автомобили с наибольшими отклонениями.', m:'Нужен источник фактического расхода'},
   {id:'B1', u:'СН-Торг', t:'Единый аналитический слой R-Keeper и StoreHouse',
-   p:'Данные кассы и склада автоматически собираются в единый аналитический контур без замены существующих систем.', m:'Готово к пилоту'},
+   p:'Данные R-Keeper и StoreHouse собираются в единый аналитический контур без замены существующих систем.', m:'Нужен доступ к выгрузкам R-Keeper и StoreHouse'},
   {id:'B2', u:'СН-Торг', t:'Предзаказ питания',
-   p:'Сотрудники заранее выбирают блюда, а кухня получает фактический спрос до начала приготовления.', m:'Готово к пилоту'},
+   p:'Сотрудники заранее выбирают блюда, а кухня получает зафиксированный спрос до начала приготовления.', m:''},
   {id:'B3', u:'СН-Торг', t:'Контроль себестоимости питания',
-   p:'Система сравнивает фактический и нормативный расход продуктов и показывает причины отклонений по блюдам и объектам.', m:'Готово к пилоту'},
+   p:'Система сравнивает фактическую и нормативную себестоимость и раскладывает отклонение по факторам в разрезе блюд и объектов.', m:''},
 ];
 
 /* ======== 01 · титул ======== */
@@ -325,21 +327,21 @@ function STitle({go}){
 /* ======== 02 · разрыв ======== */
 function SGap(){
   const rows = [
-    ['Замена охранника', 'Смена закрыта', 'Сколько времени занял поиск замены и кто реально вышел на пост, нигде не фиксируется.', 22],
-    ['Расход топлива', 'Топливо списано', 'Сколько израсходовано сверх норматива и на каких автомобилях, из путевых листов не видно.', 26],
-    ['Питание на объектах', 'Порции приготовлены', 'Сколько порций забрали сотрудники и сколько ушло в списание, узнают уже по итогам месяца.', 30],
+    ['Замена охранника', 'Смена закрыта', 'Время поиска замены и результат закрытия смены не формируются как отдельные аналитические показатели.', 24],
+    ['Расход топлива', 'Топливо списано', 'По стандартной отчётности сложно оперативно определить, на каких автомобилях расход отклоняется от расчётной нормы.', 24],
+    ['Питание на объектах', 'Порции приготовлены', 'Фактическое потребление и списания выявляются постфактум при сверке данных.', 28],
   ];
   return (
     <div className="slide">
       <Head eyebrow="Постановка задачи" title="Сегодня ключевые процессы сложно измерять в реальном времени"
-        sub={<>Три примера из семи инициатив: <b>результат процесса известен, а его причины и стоимость остаются вне учёта</b>.</>} />
+        sub={<>Три примера из семи инициатив: <b>результат процесса фиксируется, но промежуточные показатели и причины отклонений не собираются в единую аналитику</b>.</>} />
       <div className="s-body">
         <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'3.4vh'}}>
           <div className="gaprow">
             <div />
             <div style={{display:'flex', justifyContent:'space-between'}}>
-              <span className="lbl ac">Видно сейчас</span>
-              <span className="lbl">Не видно и не измеряется</span>
+              <span className="lbl ac">Фиксируется сейчас</span>
+              <span className="lbl">Не собирается в аналитику</span>
             </div>
           </div>
           {rows.map((r, i) => (
@@ -372,13 +374,16 @@ function SMap(){
   return (
     <div className="slide">
       <Head eyebrow="Карта инициатив" title="Как семь инициатив связаны между собой"
-        sub={<>В охране ядром служит A1, а A2 и A3 дополняют его данными. В питании фундаментом служит B1: на его данных развиваются B2 и B3.</>} />
+        sub={<>В охране ядром служит A1, а A2 и A3 дополняют его данными. B1 служит аналитической основой для B3 и позволяет измерять эффект B2.</>} />
       <div className="s-body">
         <svg className="viz" viewBox="0 0 1000 478" preserveAspectRatio="xMidYMid meet" role="img"
-             aria-label="Схема связей: в охране A2 и A3 дополняют A1, в питании B1 является основой для B2 и B3, A4 запускается независимо">
+             aria-label="Схема связей: в охране A2 и A3 дополняют A1, B1 служит основой для B3 и позволяет измерять эффект B2, A4 запускается независимо">
           <defs>
             <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
               <path d="M0 0 L10 5 L0 10 z" fill="var(--ac)" />
+            </marker>
+            <marker id="arSoft" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="var(--rule2)" />
             </marker>
           </defs>
 
@@ -397,8 +402,11 @@ function SMap(){
             <text className="t-ax" x="526" y="18" style={{fill:'var(--ac)', fontWeight:600}}>СН-ТОРГ: ДАННЫЕ И СЕБЕСТОИМОСТЬ</text>
           </g>
           <N d={300} x={602} y={48} w={318} h={100} code="B1" l="Единый аналитический слой" s="фундамент контура данных" core />
-          <path className="dw" style={D(600)} d="M700 148 L700 180 Q700 192 684 192 L647 192 L647 222" fill="none" stroke="var(--ac)" strokeWidth="1.6" markerEnd="url(#ar)" />
+          <path className="dw" style={D(600)} d="M700 148 L700 180 Q700 192 684 192 L647 192 L647 222" fill="none"
+                stroke="var(--rule2)" strokeWidth="1.6" strokeDasharray="6 5" markerEnd="url(#arSoft)" />
           <path className="dw" style={D(640)} d="M820 148 L820 180 Q820 192 836 192 L875 192 L875 222" fill="none" stroke="var(--ac)" strokeWidth="1.6" markerEnd="url(#ar)" />
+          <text className="t-ax" x="530" y="198">оценка эффекта</text>
+          <text className="t-ax" x="892" y="198">основа анализа</text>
           <N d={460} x={542} y={222} w={210} h={72} code="B2" l="Предзаказ" />
           <N d={520} x={770} y={222} w={210} h={72} code="B3" l="Себестоимость" />
 
@@ -429,7 +437,7 @@ function STiles({unit, title, go, cols}){
               <div className="code">{i.id}</div>
               <h3>{i.t}</h3>
               <p>{i.p}</p>
-              <div><span className="chip" data-t={i.m === 'Можно внедрять' ? 'v' : 'm'}>{i.m}</span></div>
+              {i.m && <div><span className="chip" data-t="m">{i.m}</span></div>}
             </button>
           ))}
         </div>
@@ -446,7 +454,7 @@ function SA1(){
   const W = 256, G = 30;
   return (
     <div className="slide">
-      <Head eyebrow={<span><b>МегаЩит</b> · A1</span>} right="Прототип уже работает"
+      <Head eyebrow={<span><b>МегаЩит</b> · A1</span>} right="Прототип готов"
         title="Автоматизация поиска замены охранника"
         sub={<>Вместо ручного обзвона система автоматически формирует подходящий пул сотрудников, отправляет запрос и фиксирует первого согласившегося.</>} />
       <div className="s-body">
@@ -470,7 +478,7 @@ function SA1(){
             })}
           </svg>
           <div>
-            <div className="lbl ac rv" style={{...D(760), marginBottom:'1.4vh'}}>Показатели, которые появятся в отчётности после запуска</div>
+            <div className="lbl ac rv" style={{...D(760), marginBottom:'1.4vh'}}>Показатели, которые можно рассчитывать после запуска</div>
             <div className="metrics">
               {met.map((m, i) => <span className="chip pop" data-t="m" style={D(820 + i*70)} key={m}>{m}</span>)}
             </div>
@@ -489,8 +497,7 @@ function SA2(){
   const yr = n => X0 + span * n / 5;
   return (
     <div className="slide">
-      <Head eyebrow={<span><b>МегаЩит</b> · A2</span>} right="Готово к пилоту"
-        title="Просроченный допуск не должен доходить до поста"
+      <Head eyebrow={<span><b>МегаЩит</b> · A2</span>} title="Просроченный допуск не должен доходить до поста"
         sub={<>Система хранит срок действия каждого обязательного документа, заранее предупреждает ответственного и автоматически исключает сотрудника из пула доступных замен.</>} />
       <div className="s-body">
         <div className="split">
@@ -539,14 +546,14 @@ function SA2(){
               ))}
             </ol>
             <div className="rv" style={{...D(760), borderTop:'1px solid var(--rule)', paddingTop:'1.8vh'}}>
-              <p style={{margin:0, fontSize:'var(--fs-min)', lineHeight:1.45, color:'var(--ink2)'}}>
-                За пятилетний цикл на одного охранника приходится 11 дат истечения. На сто человек это {'1' + NB + '100'} событий, которые сегодня отслеживаются вручную.
+              <p style={{margin:0, fontSize:'var(--fs-sec)', lineHeight:1.45, color:'var(--ink2)'}}>
+                За пятилетний цикл на одного охранника приходится 11 контрольных дат. На сто человек это {'1' + NB + '100'} событий, которые сегодня отслеживаются вручную.
               </p>
             </div>
           </div>
         </div>
       </div>
-      <Src>Удостоверение действует 5 лет, медицинское заключение и периодическая проверка обновляются ежегодно (Закон РФ № 2487-1, Приказ Росгвардии № 178).</Src>
+      <Src>Удостоверение продлевается на 5 лет; медицинское освидетельствование и плановая периодическая проверка проводятся не реже одного раза в год. Основание: ФЗ № 427-ФЗ, Приказ Минздрава № 272н, Приказ Росгвардии № 178.</Src>
     </div>
   );
 }
@@ -554,12 +561,11 @@ function SA2(){
 /* ======== 07 · A3 ======== */
 function SA3(){
   const flow = [['Свободный','текст'], ['Стандартная','форма'], ['Структурированные','данные'], ['Автоматическая','сводка']];
-  const bars = [['Проход на объект', 62], ['Нарушение режима', 44], ['Техника', 31], ['Медицина', 18], ['Прочее', 12]];
+  const bars = [['Проход на объект', 62], ['Нарушение режима', 44], ['Техника', 31], ['Прочее', 18]];
   const W = 300, G = 40;
   return (
     <div className="slide">
-      <Head eyebrow={<span><b>МегаЩит</b> · A3</span>} right="Можно внедрять"
-        title="Стандартная форма превращает рапорты в аналитические данные"
+      <Head eyebrow={<span><b>МегаЩит</b> · A3</span>} title="Стандартная форма превращает рапорты в аналитические данные"
         sub={<>Сотрудник заполняет рапорт выбором из справочников, поэтому события сразу агрегируются по объектам и типам без ручной обработки.</>} />
       <div className="s-body">
         <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'4vh'}}>
@@ -586,16 +592,16 @@ function SA3(){
 
           <div className="rv" style={{...D(760), border:'1px solid var(--rule)', borderRadius:'3px', padding:'clamp(16px,2.2vh,24px) clamp(18px,2vw,28px)'}}>
             <div style={{display:'flex', alignItems:'center', gap:'14px', marginBottom:'1.8vh', flexWrap:'wrap'}}>
-              <span className="lbl ac">Сводка по типам событий за неделю</span>
+              <span className="lbl ac">Пример автоматической недельной сводки</span>
               <span className="chip" data-t="f">Условный пример</span>
             </div>
-            <div style={{display:'flex', flexDirection:'column', gap:'1vh'}}>
+            <div style={{display:'flex', flexDirection:'column', gap:'1.3vh'}}>
               {bars.map((b, i) => (
-                <div key={i} style={{display:'grid', gridTemplateColumns:'clamp(160px,17vw,240px) 1fr', gap:'16px', alignItems:'center'}}>
-                  <span style={{fontSize:'var(--fs-min)', color:'var(--ink2)', fontWeight:500}}>{b[0]}</span>
-                  <div style={{display:'flex', alignItems:'center', gap:'12px'}}>
-                    <div className="gx" style={{...D(820 + i*90), width:`calc(${b[1]}% * 0.9)`, height:'clamp(16px,2.2vh,22px)', background:'var(--ac)', opacity:1 - i*0.12, borderRadius:'2px'}} />
-                    <span style={{fontSize:'var(--fs-min)', color:'var(--ink2)', fontVariantNumeric:'tabular-nums'}}>{b[1]}</span>
+                <div key={i} style={{display:'grid', gridTemplateColumns:'clamp(200px,19vw,280px) 1fr', gap:'20px', alignItems:'center'}}>
+                  <span style={{fontSize:'var(--fs-body)', color:'var(--ink)', fontWeight:500}}>{b[0]}</span>
+                  <div style={{display:'flex', alignItems:'center', gap:'16px'}}>
+                    <div className="gx" style={{...D(820 + i*90), width:`calc(${b[1]}% * 0.88)`, height:'clamp(24px,3.4vh,34px)', background:'var(--ac)', opacity:1 - i*0.13, borderRadius:'3px'}} />
+                    <span style={{fontSize:'var(--fs-body)', color:'var(--ink)', fontWeight:600, fontVariantNumeric:'tabular-nums'}}>{b[1]}</span>
                   </div>
                 </div>
               ))}
@@ -613,60 +619,65 @@ function SA4(){
   const cars = [['Автомобиль 1', 34], ['Автомобиль 2', 27], ['Автомобиль 3', 19], ['Автомобиль 4', 11]];
   return (
     <div className="slide">
-      <Head eyebrow={<span><b>МегаЩит</b> · A4</span>} right="Можно внедрять"
-        title="Контроль расхода топлива по ГЛОНАСС"
-        sub={<>Руководитель получает список автомобилей с наибольшим перерасходом топлива и может разбирать причины точечно.</>} />
+      <Head eyebrow={<span><b>МегаЩит</b> · A4</span>} title="Контроль расхода топлива по ГЛОНАСС"
+        sub={<>Система сравнивает фактический расход с расчётной нормой и выделяет автомобили с наибольшими отклонениями, чтобы руководитель разбирал причины точечно.</>} />
       <div className="s-body">
         <div className="split">
           <div className="vizbox">
-            <svg className="viz" viewBox="0 0 900 340" preserveAspectRatio="xMidYMid meet" role="img"
-                 aria-label="Данные ГЛОНАСС и норматив расхода дают расчёт отклонения и список автомобилей для проверки">
+            <svg className="viz" viewBox="0 0 900 400" preserveAspectRatio="xMidYMid meet" role="img"
+                 aria-label="Три источника данных: ГЛОНАСС, фактический расход и расчётная норма. На их основе считается отклонение и формируется список автомобилей для проверки">
               <defs><marker id="arC" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--ac)" /></marker></defs>
-              {[['Данные ГЛОНАСС','пробег, треки, время в работе',20],['Норматив расхода','с применимыми коэффициентами',180]].map((s, i) => (
-                <g key={i} className="pop" style={D(220 + i*120)}>
-                  <rect x="0" y={s[2]} width="300" height="106" rx="3" fill="var(--acsoft)" stroke="var(--ac)" strokeWidth="1.4" />
-                  <text className="t-lbl" x="22" y={s[2] + 44}>{s[0]}</text>
-                  <text className="t-sub" x="22" y={s[2] + 74}>{s[1]}</text>
+              {[
+                ['ГЛОНАСС', 'пробег и маршруты,', 'время движения и простоя', 0],
+                ['Фактический расход', 'заправки и путевые листы,', 'ДУТ при наличии', 140],
+                ['Расчётная норма', 'с применимыми', 'коэффициентами', 280],
+              ].map((s, i) => (
+                <g key={i} className="pop" style={D(200 + i*110)}>
+                  <rect x="0" y={s[3]} width="336" height="112" rx="3" fill="var(--acsoft)" stroke="var(--ac)" strokeWidth="1.4" />
+                  <text className="t-lbl" x="22" y={s[3] + 38}>{s[0]}</text>
+                  <text className="t-sub" x="22" y={s[3] + 66}>{s[1]}</text>
+                  <text className="t-sub" x="22" y={s[3] + 90}>{s[2]}</text>
                 </g>
               ))}
-              <path className="dw" style={D(440)} d="M300 73 L344 73 Q368 73 368 100 L368 146" fill="none" stroke="var(--ac)" strokeWidth="1.8" markerEnd="url(#arC)" />
-              <path className="dw" style={D(480)} d="M300 233 L344 233 Q368 233 368 206 L368 160" fill="none" stroke="var(--ac)" strokeWidth="1.8" markerEnd="url(#arC)" />
-              <g className="pop" style={D(540)}>
-                <rect x="380" y="100" width="220" height="106" rx="3" fill="var(--white)" stroke="var(--ac)" strokeWidth="1.4" />
-                <text className="t-lbl" x="402" y="144">Расчёт</text>
-                <text className="t-lbl" x="402" y="172">отклонения</text>
+              <path className="dw" style={D(420)} d="M336 56 L358 56 Q382 56 382 84 L382 168" fill="none" stroke="var(--ac)" strokeWidth="1.8" markerEnd="url(#arC)" />
+              <path className="dw" style={D(460)} d="M336 196 L382 196" fill="none" stroke="var(--ac)" strokeWidth="1.8" markerEnd="url(#arC)" />
+              <path className="dw" style={D(500)} d="M336 336 L358 336 Q382 336 382 308 L382 224" fill="none" stroke="var(--ac)" strokeWidth="1.8" markerEnd="url(#arC)" />
+              <g className="pop" style={D(560)}>
+                <rect x="394" y="142" width="212" height="112" rx="3" fill="var(--white)" stroke="var(--ac)" strokeWidth="1.4" />
+                <text className="t-lbl" x="416" y="188">Расчёт</text>
+                <text className="t-lbl" x="416" y="218">отклонения</text>
               </g>
-              <path className="dw" style={D(640)} d="M600 153 L644 153" fill="none" stroke="var(--ac)" strokeWidth="1.8" markerEnd="url(#arC)" />
-              <g className="pop" style={D(700)}>
-                <rect x="656" y="100" width="244" height="106" rx="3" fill="var(--ac)" stroke="var(--ac)" strokeWidth="2.4" />
-                <text className="t-lbl" x="678" y="144" style={{fill:'var(--white)'}}>Список машин</text>
-                <text className="t-lbl" x="678" y="172" style={{fill:'var(--white)'}}>для проверки</text>
+              <path className="dw" style={D(660)} d="M606 198 L646 198" fill="none" stroke="var(--ac)" strokeWidth="1.8" markerEnd="url(#arC)" />
+              <g className="pop" style={D(720)}>
+                <rect x="658" y="142" width="242" height="112" rx="3" fill="var(--ac)" stroke="var(--ac)" strokeWidth="2.4" />
+                <text className="t-lbl" x="680" y="188" style={{fill:'var(--white)'}}>Список машин</text>
+                <text className="t-lbl" x="680" y="218" style={{fill:'var(--white)'}}>для проверки</text>
               </g>
             </svg>
           </div>
           <div className="side">
             <div className="rv" style={{...D(700), border:'1px solid var(--rule)', borderRadius:'3px', padding:'clamp(14px,2vh,20px)'}}>
               <div style={{display:'flex', alignItems:'center', gap:'10px', marginBottom:'1.4vh', flexWrap:'wrap'}}>
-                <span className="lbl ac">Отклонение от норматива</span>
+                <span className="lbl ac">Отклонение от расчётной нормы</span>
                 <span className="chip" data-t="f">Условный пример</span>
               </div>
-              <div style={{display:'flex', flexDirection:'column', gap:'1vh'}}>
+              <div style={{display:'flex', flexDirection:'column', gap:'1.2vh'}}>
                 {cars.map((c, i) => (
-                  <div key={i} style={{display:'flex', alignItems:'center', gap:'10px'}}>
-                    <span style={{fontSize:'var(--fs-min)', color:'var(--ink2)', width:'clamp(96px,9vw,120px)', flex:'none'}}>{c[0]}</span>
-                    <div className="gx" style={{...D(760 + i*80), width:`${c[1]*2}%`, maxWidth:'55%', height:'14px', background: i === 0 ? 'var(--cl)' : 'var(--ac)', borderRadius:'2px'}} />
-                    <span style={{fontSize:'var(--fs-min)', color:'var(--ink)', fontWeight:600, fontVariantNumeric:'tabular-nums'}}>{c[1]}%</span>
+                  <div key={i} style={{display:'flex', alignItems:'center', gap:'12px'}}>
+                    <span style={{fontSize:'var(--fs-sec)', color:'var(--ink)', width:'clamp(118px,10vw,142px)', flex:'none'}}>{c[0]}</span>
+                    <div className="gx" style={{...D(760 + i*80), width:`${c[1]*1.7}%`, maxWidth:'48%', height:'clamp(18px,2.4vh,24px)', background: i === 0 ? 'var(--cl)' : 'var(--ac)', borderRadius:'3px'}} />
+                    <span style={{fontSize:'var(--fs-sec)', color:'var(--ink)', fontWeight:600, fontVariantNumeric:'tabular-nums'}}>{c[1]}%</span>
                   </div>
                 ))}
               </div>
             </div>
-            <p className="rv" style={{...D(860), margin:0, fontSize:'var(--fs-min)', lineHeight:1.45, color:'var(--ink2)', borderLeft:'3px solid var(--cl)', paddingLeft:'14px'}}>
-              Данные ГЛОНАСС позволяют выявить аномалию, но для подтверждения факта слива потребуется дополнительный контроль, например ДУТ.
+            <p className="rv" style={{...D(860), margin:0, fontSize:'var(--fs-sec)', lineHeight:1.45, color:'var(--ink2)', borderLeft:'3px solid var(--cl)', paddingLeft:'14px'}}>
+              Данные ГЛОНАСС позволяют выявить отклонения в эксплуатации, но для подтверждения факта слива потребуется дополнительный контроль, например ДУТ.
             </p>
           </div>
         </div>
       </div>
-      <Src>Норматив расхода рассчитывается по методике Минтранса с учётом применимых коэффициентов.</Src>
+      <Src>Расчётная норма определяется по методическим рекомендациям Минтранса с учётом применимых коэффициентов.</Src>
     </div>
   );
 }
@@ -676,9 +687,9 @@ function SB1(){
   const out = ['Продажи','Себестоимость','Списания','Остатки','Закупочные цены'];
   return (
     <div className="slide">
-      <Head eyebrow={<span><b>СН-Торг</b> · B1</span>} right="Готово к пилоту"
+      <Head eyebrow={<span><b>СН-Торг</b> · B1</span>} right="Нужен доступ к выгрузкам"
         title="Единый аналитический слой R-Keeper и StoreHouse"
-        sub={<>Данные кассы и склада автоматически собираются в один контур без замены существующих систем, поэтому отчётность перестаёт зависеть от ручной сборки.</>} />
+        sub={<>Данные R-Keeper и StoreHouse собираются в единый аналитический контур без замены существующих систем. Это позволяет формировать сводную аналитику без ручного объединения выгрузок.</>} />
       <div className="s-body">
         <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'3.4vh'}}>
           <svg viewBox="0 0 1240 250" preserveAspectRatio="xMidYMid meet" style={{width:'100%', height:'auto', maxHeight:'46vh'}} role="img"
@@ -708,7 +719,7 @@ function SB1(){
           </svg>
 
           <div>
-            <div className="lbl ac rv" style={{...D(820), marginBottom:'1.4vh'}}>Пять готовых разрезов аналитики</div>
+            <div className="lbl ac rv" style={{...D(820), marginBottom:'1.4vh'}}>Пять целевых разрезов аналитики</div>
             <div className="metrics">
               {out.map((o, i) => <span className="chip pop" data-t="v" style={D(860 + i*70)} key={o}>{o}</span>)}
             </div>
@@ -724,9 +735,8 @@ function SB1(){
 function SB2(){
   return (
     <div className="slide">
-      <Head eyebrow={<span><b>СН-Торг</b> · B2</span>} right="Готово к пилоту"
-        title="Предзаказ питания"
-        sub={<>Предзаказ переносит прогноз спроса с оценки повара на реальные заказы сотрудников и снижает риск переготовки.</>} />
+      <Head eyebrow={<span><b>СН-Торг</b> · B2</span>} title="Предзаказ питания"
+        sub={<>Предзаказ позволяет формировать план приготовления на основе заказов сотрудников до начала производства и снижает риск переготовки.</>} />
       <div className="s-body">
         <div className="split">
           <div className="vizbox" style={{flexDirection:'column', justifyContent:'center', gap:'2.4vh'}}>
@@ -740,21 +750,21 @@ function SB2(){
                   <span style={{color:'var(--white)', fontSize:'var(--fs-body)', fontWeight:600}}>160 порций востребовано</span>
                 </div>
                 <div className="gx" style={{...D(420), width:'20%', background:'var(--clsoft)', borderLeft:'1px solid var(--cl)', display:'flex', alignItems:'center', paddingLeft:'clamp(10px,1.2vw,16px)'}}>
-                  <span style={{color:'var(--cl)', fontSize:'var(--fs-min)', fontWeight:600}}>40 лишних</span>
+                  <span style={{color:'var(--cl)', fontSize:'var(--fs-sec)', fontWeight:600}}>40 лишних</span>
                 </div>
               </div>
-              <div className="rv" style={{...D(520), marginTop:'.9vh', fontSize:'var(--fs-min)', color:'var(--ink3)'}}>Приготовлено 200 порций</div>
+              <div className="rv" style={{...D(520), marginTop:'.9vh', fontSize:'var(--fs-sec)', color:'var(--ink2)'}}>Приготовлено 200 порций</div>
             </div>
 
             <div style={{width:'100%'}}>
               <div className="lbl ac rv" style={{...D(640), marginBottom:'1.6vh'}}>С предзаказом</div>
               <div style={{display:'flex', height:'clamp(48px,7.4vh,76px)', border:'1px solid var(--rule)', borderRadius:'3px', overflow:'hidden'}}>
                 <div className="gx" style={{...D(700), width:'80%', background:'var(--ac)', display:'flex', alignItems:'center', paddingLeft:'clamp(14px,1.6vw,22px)'}}>
-                  <span style={{color:'var(--white)', fontSize:'var(--fs-body)', fontWeight:600}}>160 заказано и приготовлено</span>
+                  <span style={{color:'var(--white)', fontSize:'var(--fs-body)', fontWeight:600}}>160 предзаказов, базовый план приготовления</span>
                 </div>
                 <div style={{width:'20%', background:'var(--soft)'}} />
               </div>
-              <div className="rv" style={{...D(820), marginTop:'.9vh', fontSize:'var(--fs-min)', color:'var(--ink3)'}}>Кухня готовит по фактическому спросу</div>
+              <div className="rv" style={{...D(820), marginTop:'.9vh', fontSize:'var(--fs-sec)', color:'var(--ink2)'}}>Кухня формирует план приготовления по подтверждённым предзаказам</div>
             </div>
           </div>
 
@@ -762,8 +772,8 @@ function SB2(){
             <ol className="steps">
               {[
                 'Сотрудник заранее выбирает блюда на смену в приложении, бригадир может оформить заказ за бригаду.',
-                'Кухня получает агрегированный спрос до начала приготовления.',
-                'Фактический спрос используется для планирования приготовления и закупок.',
+                'Кухня получает агрегированные предзаказы до начала приготовления.',
+                'Предзаказы используются для планирования приготовления и закупок.',
               ].map((s, i) => (
                 <li className="step rv" style={D(340 + i*150)} key={i}><span className="n">0{i+1}</span><p>{s}</p></li>
               ))}
@@ -778,23 +788,22 @@ function SB2(){
 
 /* ======== 12 · B3 ======== */
 function SB3(){
-  const flow = [['Норматив','по ТТК'], ['Фактический','расход'], ['Отклонение',''], ['Причина','отклонения']];
+  const flow = [['Нормативная','себестоимость'], ['Фактическая','себестоимость'], ['Отклонение',''], ['Факторы','отклонения']];
   const causes = [
-    ['Закупочная цена', 'Продукт подорожал относительно цены, заложенной в расчёт.'],
-    ['Перерасход относительно ТТК', 'Фактически заложено больше продукта, чем предусмотрено картой.'],
-    ['Списания и порча', 'Продукт списан по браку, истёк срок или нарушены условия хранения.'],
-    ['Структура меню', 'Сместился спрос в сторону блюд с другой себестоимостью.'],
+    ['Закупочная цена', 'Фактическая цена отличается от цены, использованной при расчёте норматива.'],
+    ['Перерасход относительно ТТК', 'Фактический расход ингредиента превышает количество по технологической карте.'],
+    ['Списания и порча', 'В учёте отражены дополнительные списания продукта.'],
+    ['Структура меню', 'Изменилась доля блюд с разной себестоимостью.'],
   ];
   const W = 290, G = 42;
   return (
     <div className="slide">
-      <Head eyebrow={<span><b>СН-Торг</b> · B3</span>} right="Готово к пилоту"
-        title="Почему фактическая себестоимость отличается от нормативной"
-        sub={<>Система сравнивает нормативный расход по технологическим картам с фактическим и показывает, чем именно вызвано отклонение по каждому блюду и объекту.</>} />
+      <Head eyebrow={<span><b>СН-Торг</b> · B3</span>} title="Почему фактическая себестоимость отличается от нормативной"
+        sub={<>Система сравнивает нормативную себестоимость, рассчитанную по технологическим картам и закупочным ценам, с фактической себестоимостью и раскладывает отклонение по факторам.</>} />
       <div className="s-body">
         <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'4vh'}}>
           <svg viewBox="0 0 1286 130" preserveAspectRatio="xMidYMid meet" style={{width:'100%', height:'auto'}} role="img"
-               aria-label="Норматив по технологической карте, фактический расход, отклонение и его причина">
+               aria-label="Нормативная себестоимость, фактическая себестоимость, отклонение и факторы отклонения">
             <defs><marker id="arE" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--ac)" /></marker></defs>
             {flow.map((f, i) => {
               const x = i * (W + G), last = i === 3;
@@ -813,7 +822,7 @@ function SB3(){
           </svg>
 
           <div>
-            <div className="lbl ac rv" style={{...D(740), marginBottom:'1.6vh'}}>Причины, которые система разделяет автоматически</div>
+            <div className="lbl ac rv" style={{...D(740), marginBottom:'1.6vh'}}>Факторы, которые можно выделить в анализе</div>
             <div className="causes">
               {causes.map((c, i) => (
                 <div className="cause rv" style={D(790 + i*110)} key={i}>
@@ -876,42 +885,38 @@ function SRoad(){
 
 /* ======== 14 · следующие шаги ======== */
 function SEnd(){
-  const steps = [
-    ['01','Выбор инициатив и доступы','неделя 1','Совместно выбираем 2–3 приоритетные инициативы, определяем пилотные объекты, владельцев процессов и необходимые данные.', 0],
-    ['02','Базовый замер','недели 1–2','Фиксируем текущий процесс и исходные показатели, чтобы эффект пилота можно было измерить.', 0],
-    ['03','Разработка MVP','недели 2–4','Три рабочих трека параллельно собирают и проверяют MVP выбранных инициатив. По A1 дорабатываем уже существующий прототип.', 1],
-    ['04','Пилот на реальных процессах','недели 4–6','Запускаем решения на ограниченном числе объектов, собираем фактические данные и корректируем продукт.', 0],
-    ['05','Решение о масштабировании','недели 6–8','Сравниваем результаты с базовым уровнем и по каждой инициативе принимаем решение: масштабировать, доработать или остановить.', 0],
+  const need = [
+    ['01','Подписать NDA по 3 дополнительным участникам команды.'],
+    ['02','Выбрать 2–3 инициативы для первого параллельного запуска.'],
+    ['03','Определить пилотные объекты и владельцев процессов.'],
+    ['04','Предоставить необходимые данные и доступы.'],
   ];
   return (
     <div className="slide">
-      <Head eyebrow="Следующие шаги" title="Следующие шаги" />
+      <Head title="Что нужно для старта" />
       <div className="s-body">
-        <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'3.4vh'}}>
+        <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'4vh'}}>
           <div className="nda rv" style={D(180)}>
-            <div className="big">Чтобы запустить несколько инициатив параллельно, нам нужны ещё 3 человека. По ним ждём подписания NDA.</div>
-            <p>После подписания NDA каждый сможет вести отдельный рабочий трек параллельно.</p>
+            <div className="big">Для параллельного запуска нескольких инициатив нам нужны ещё 3 человека. По ним ожидается подписание NDA.</div>
           </div>
 
           <div className="finsteps">
-            {steps.map((s, i) => (
-              <div className="fs rv" data-hot={s[4] ? '1' : '0'} style={D(280 + i*110)} key={s[0]}>
+            {need.map((s, i) => (
+              <div className="fs rv" data-hot={i === 0 ? '1' : '0'} style={D(280 + i*120)} key={s[0]}>
                 <span className="n">{s[0]}</span>
-                <span className="t">{s[1]}</span>
-                <span className="w">{s[2]}</span>
-                <p>{s[3]}</p>
+                <p style={{fontSize:'var(--fs-body)', color:'var(--ink)'}}>{s[1]}</p>
               </div>
             ))}
           </div>
 
-          <div className="hero-stats rv" style={{...D(860), marginTop:0, borderTopColor:'var(--ac)'}}>
+          <div className="hero-stats rv" style={{...D(800), marginTop:0, borderTopColor:'var(--ac)'}}>
             <div><em>+3</em><span>человека в команде</span></div>
-            <div><em>до 3</em><span>параллельных треков</span></div>
-            <div><em>6–8</em><span>недель до решения о масштабировании</span></div>
+            <div><em>2–3</em><span>инициативы в первой волне</span></div>
+            <div><em>6–8</em><span>недель до результатов пилота</span></div>
           </div>
         </div>
       </div>
-      <Src>Цель ближайших 1–2 месяцев: не построить семь полноценных систем, а быстро проверить выбранные инициативы на реальных данных и определить, какие из них стоит масштабировать.</Src>
+      <Src></Src>
     </div>
   );
 }
@@ -936,7 +941,7 @@ function App(){
     {n:'B2',              el:<SB2 />},
     {n:'B3',              el:<SB3 />},
     {n:'Дорожная карта',  el:<SRoad />},
-    {n:'Следующие шаги',  el:<SEnd />},
+    {n:'Что нужно для старта', el:<SEnd />},
   ];
   const last = SLIDES.length - 1;
   const step = useCallback(d => setI(v => Math.min(last, Math.max(0, v + d))), [last]);
