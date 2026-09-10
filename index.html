@@ -1,7 +1,7 @@
 <title>Семь направлений автоматизации</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap">
 
 <style>
 :root{
@@ -9,202 +9,202 @@
   --soft:#F4F7F7;
   --soft2:#EAF0F0;
   --ink:#0C1416;
-  --ink2:#54666A;
-  --ink3:#8B9BA0;
+  --ink2:#4C5F63;
+  --ink3:#6E8085;
   --rule:#E1E8E9;
-  --rule2:#C6D2D3;
+  --rule2:#C0CDCE;
   --ac:#0E5461;
   --ac2:#13899B;
-  --ac3:#B9DDE2;
+  --ac3:#A9D4DA;
   --acsoft:#E7F2F4;
-  --am:#B5821B;
+  --am:#9C6F14;
   --amsoft:#FAF2E0;
-  --cl:#AB5236;
+  --cl:#A04A2F;
   --clsoft:#FBEDE8;
-  --sans:"Golos Text","Helvetica Neue",Arial,sans-serif;
-  --serif:"IBM Plex Serif",Georgia,serif;
-  --mono:"IBM Plex Mono",Consolas,monospace;
+  --f:"Golos Text","Helvetica Neue",Arial,sans-serif;
+
+  --fs-min:14px;
+  --fs-body:clamp(15px,1.85vh,19px);
+  --fs-lede:clamp(16px,2.15vh,22px);
+  --fs-h3:clamp(18px,2.5vh,27px);
+  --fs-h2:clamp(26px,4.2vh,46px);
+  --fs-h1:clamp(34px,6.9vh,74px);
 }
 *{box-sizing:border-box}
 html,body{height:100%; margin:0; overflow:hidden; background:var(--white)}
-body{font-family:var(--sans); color:var(--ink); -webkit-font-smoothing:antialiased}
+body{font-family:var(--f); color:var(--ink); font-size:16px; -webkit-font-smoothing:antialiased}
 #root{height:100%}
 
 /* ---------- каркас ---------- */
 .stage{position:fixed; inset:0; display:flex; flex-direction:column; background:var(--white)}
-.slide{flex:1; min-height:0; display:flex; flex-direction:column; padding:4.2vh clamp(24px,4.4vw,74px) 2vh; position:relative}
+.slide{flex:1; min-height:0; display:flex; flex-direction:column; padding:4vh clamp(24px,4.2vw,72px) 1.8vh; position:relative}
 .s-head{flex:none}
-.s-body{flex:1; min-height:0; display:flex; align-items:center; justify-content:center; padding:2.2vh 0}
-.s-foot{flex:none; min-height:2.4vh}
+.s-body{flex:1; min-height:0; display:flex; align-items:center; justify-content:center; padding:2.4vh 0}
+.s-foot{flex:none; min-height:2vh}
 
 .eyebrow{
-  font-family:var(--mono); font-size:clamp(9.5px,1.25vh,12.5px); letter-spacing:.17em;
-  text-transform:uppercase; color:var(--ink3); display:flex; gap:14px; align-items:baseline;
-  margin-bottom:1.4vh;
+  font-size:var(--fs-min); font-weight:500; letter-spacing:.04em;
+  color:var(--ink3); display:flex; gap:16px; align-items:baseline; margin-bottom:1.4vh;
 }
 .eyebrow b{color:var(--ac); font-weight:600}
 .eyebrow .sp{margin-left:auto}
-h1{font-family:var(--serif); font-weight:700; font-size:clamp(34px,8.4vh,86px); line-height:.98; letter-spacing:-.025em; margin:0; text-wrap:balance}
-h2{font-family:var(--serif); font-weight:600; font-size:clamp(24px,5vh,54px); line-height:1.02; letter-spacing:-.02em; margin:0; text-wrap:balance}
-.sub{font-size:clamp(13px,2.05vh,20px); line-height:1.42; color:var(--ink2); margin:1.1vh 0 0; max-width:70ch}
+h1{font-weight:700; font-size:var(--fs-h1); line-height:1.02; letter-spacing:-.028em; margin:0; text-wrap:balance}
+h2{font-weight:700; font-size:var(--fs-h2); line-height:1.08; letter-spacing:-.022em; margin:0; text-wrap:balance}
+h3{font-weight:600; font-size:var(--fs-h3); line-height:1.16; letter-spacing:-.012em; margin:0}
+.sub{font-size:var(--fs-lede); font-weight:400; line-height:1.44; color:var(--ink2); margin:1.2vh 0 0; max-width:78ch}
 .sub b{color:var(--ink); font-weight:600}
-.src{font-family:var(--mono); font-size:clamp(8.5px,1.15vh,11px); color:var(--ink3); letter-spacing:.02em}
+.src{font-size:var(--fs-min); font-weight:400; color:var(--ink3); line-height:1.4}
 
 /* ---------- анимации ---------- */
 @keyframes rv{from{opacity:0; transform:translateY(16px)} to{opacity:1; transform:none}}
-@keyframes rvx{from{opacity:0; transform:translateX(26px)} to{opacity:1; transform:none}}
+@keyframes pop{from{opacity:0; transform:scale(.88)} to{opacity:1; transform:none}}
 @keyframes grow{from{transform:scaleX(0)} to{transform:scaleX(1)}}
-@keyframes growy{from{transform:scaleY(0)} to{transform:scaleY(1)}}
 @keyframes draw{to{stroke-dashoffset:0}}
-@keyframes pop{from{opacity:0; transform:scale(.86)} to{opacity:1; transform:none}}
-.rv{opacity:0; animation:rv .55s cubic-bezier(.2,.75,.3,1) forwards; animation-delay:var(--d,0ms)}
-.rvx{opacity:0; animation:rvx .55s cubic-bezier(.2,.75,.3,1) forwards; animation-delay:var(--d,0ms)}
-.pop{opacity:0; animation:pop .5s cubic-bezier(.2,.9,.3,1) forwards; animation-delay:var(--d,0ms)}
-.gx{transform:scaleX(0); transform-origin:left; animation:grow .85s cubic-bezier(.25,.8,.3,1) forwards; animation-delay:var(--d,0ms)}
-.gy{transform:scaleY(0); transform-origin:bottom; animation:growy .8s cubic-bezier(.25,.8,.3,1) forwards; animation-delay:var(--d,0ms)}
-.dw{stroke-dasharray:900; stroke-dashoffset:900; animation:draw 1s ease forwards; animation-delay:var(--d,0ms)}
+.rv{opacity:0; animation:rv .5s cubic-bezier(.2,.75,.3,1) forwards; animation-delay:var(--d,0ms)}
+.pop{opacity:0; animation:pop .45s cubic-bezier(.2,.9,.3,1) forwards; animation-delay:var(--d,0ms)}
+.gx{transform:scaleX(0); transform-origin:left; animation:grow .8s cubic-bezier(.25,.8,.3,1) forwards; animation-delay:var(--d,0ms)}
+.dw{stroke-dasharray:900; stroke-dashoffset:900; animation:draw .9s ease forwards; animation-delay:var(--d,0ms)}
 @media (prefers-reduced-motion:reduce){
-  .rv,.rvx,.pop{opacity:1; animation:none; transform:none}
-  .gx,.gy{transform:none; animation:none}
+  .rv,.pop{opacity:1; animation:none; transform:none}
+  .gx{transform:none; animation:none}
   .dw{stroke-dashoffset:0; animation:none}
 }
 
-/* ---------- низ ---------- */
+/* ---------- нижняя навигация ---------- */
 .bar{
-  flex:none; height:52px; border-top:1px solid var(--rule); background:var(--white);
-  display:flex; align-items:center; gap:16px; padding:0 clamp(18px,3vw,40px);
+  flex:none; height:60px; border-top:1px solid var(--rule); background:var(--white);
+  display:flex; align-items:center; gap:18px; padding:0 clamp(18px,3vw,40px);
 }
+.allbtn{
+  font-family:var(--f); font-size:var(--fs-min); font-weight:600; letter-spacing:.01em;
+  border:1px solid var(--ac); background:var(--acsoft); color:var(--ac);
+  border-radius:3px; padding:8px 16px; cursor:pointer; white-space:nowrap;
+  transition:background .16s, color .16s;
+}
+.allbtn:hover{background:var(--ac); color:var(--white)}
+.allbtn[data-here="1"]{opacity:.4; pointer-events:none}
 .ticks{display:flex; gap:4px; flex:1; align-items:center}
-.tick{
-  height:22px; flex:1; max-width:46px; border:0; background:none; cursor:pointer; padding:0;
-  display:flex; align-items:center;
-}
-.tick i{display:block; width:100%; height:2px; background:var(--rule2); transition:background .22s, height .22s}
+.tick{height:24px; flex:1; max-width:52px; border:0; background:none; cursor:pointer; padding:0; display:flex; align-items:center}
+.tick i{display:block; width:100%; height:2px; background:var(--rule2); transition:background .2s, height .2s}
 .tick:hover i{background:var(--ac2)}
 .tick[data-on="1"] i{background:var(--ac); height:4px}
-.count{font-family:var(--mono); font-size:12px; color:var(--ink2); font-variant-numeric:tabular-nums; letter-spacing:.04em}
-.count b{color:var(--ac); font-weight:600}
+.count{font-size:var(--fs-min); font-weight:500; color:var(--ink2); font-variant-numeric:tabular-nums}
+.count b{color:var(--ac); font-weight:700}
 .btns{display:flex; gap:6px}
 .btns button{
-  width:32px; height:32px; border:1px solid var(--rule2); background:var(--white); color:var(--ink2);
-  border-radius:2px; cursor:pointer; font-family:var(--mono); font-size:13px; line-height:1;
+  width:36px; height:36px; border:1px solid var(--rule2); background:var(--white); color:var(--ink2);
+  border-radius:3px; cursor:pointer; font-family:var(--f); font-size:16px; line-height:1;
   display:flex; align-items:center; justify-content:center;
 }
 .btns button:hover:not(:disabled){border-color:var(--ac); color:var(--ac)}
 .btns button:disabled{opacity:.3; cursor:default}
-.brand{font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink3); white-space:nowrap}
 :focus-visible{outline:2px solid var(--ac); outline-offset:2px}
 
 /* ---------- общие элементы ---------- */
 .chip{
-  display:inline-flex; align-items:center; font-family:var(--mono);
-  font-size:clamp(8px,1.1vh,10px); letter-spacing:.12em; text-transform:uppercase;
-  border:1px solid; border-radius:2px; padding:3px 7px; white-space:nowrap;
+  display:inline-flex; align-items:center; font-size:var(--fs-min); font-weight:500;
+  border:1px solid; border-radius:3px; padding:5px 11px; white-space:nowrap; line-height:1.2;
 }
-.chip[data-t="v"]{color:var(--ac); border-color:var(--ac); background:var(--acsoft)}
+.chip[data-t="v"]{color:var(--ac); border-color:var(--ac3); background:var(--acsoft)}
 .chip[data-t="w"]{color:var(--am); border-color:var(--am); background:var(--amsoft)}
-.chip[data-t="m"]{color:var(--ink3); border-color:var(--rule2); background:var(--soft)}
+.chip[data-t="m"]{color:var(--ink2); border-color:var(--rule2); background:var(--soft)}
 .chip[data-t="f"]{color:var(--cl); border-color:var(--cl); background:var(--clsoft)}
 
-.big{display:flex; flex-direction:column; gap:.6vh}
-.big .n{
-  font-family:var(--serif); font-weight:700; font-size:clamp(38px,10.5vh,110px);
-  line-height:.86; letter-spacing:-.035em; color:var(--ac); font-variant-numeric:tabular-nums;
-}
-.big .n small{font-size:.42em; letter-spacing:-.01em; margin-left:.12em}
-.big .cap{font-size:clamp(11.5px,1.72vh,16px); line-height:1.35; color:var(--ink2); max-width:26ch}
-.big .cap b{color:var(--ink); font-weight:600}
-
-.hatch{background-image:repeating-linear-gradient(-45deg,transparent 0 6px,rgba(12,20,22,.09) 6px 7px)}
-
-.lbl{font-family:var(--mono); font-size:clamp(8.5px,1.2vh,11px); letter-spacing:.14em; text-transform:uppercase; color:var(--ink3)}
+.lbl{font-size:var(--fs-min); font-weight:600; letter-spacing:.03em; color:var(--ink3)}
 .lbl.ac{color:var(--ac)}
 
 svg.viz{width:100%; height:100%; max-height:100%; display:block}
-svg text{font-family:var(--sans)}
-.t-lbl{font-family:var(--sans); fill:var(--ink); font-size:14px}
-.t-sub{font-family:var(--sans); fill:var(--ink2); font-size:12px}
-.t-mono{font-family:var(--mono); fill:var(--ink3); font-size:11px; letter-spacing:.08em}
-.t-code{font-family:var(--mono); fill:var(--ac); font-size:13px; font-weight:600}
-.t-num{font-family:var(--mono); fill:var(--ink); font-size:12px; font-variant-numeric:tabular-nums}
+svg text{font-family:var(--f)}
+.t-lbl{fill:var(--ink); font-size:19px; font-weight:600}
+.t-sub{fill:var(--ink2); font-size:17px; font-weight:400}
+.t-code{fill:var(--ac); font-size:19px; font-weight:700}
+.t-ax{fill:var(--ink3); font-size:17px; font-weight:500}
 
 /* ---------- титул ---------- */
-.hero{display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(24px,4vw,64px); align-items:center; width:100%; height:100%}
-.hero-stats{display:flex; gap:clamp(16px,2.6vw,40px); margin-top:3vh; padding-top:1.8vh; border-top:2px solid var(--ink)}
-.hero-stats div{display:flex; flex-direction:column; gap:2px}
-.hero-stats em{font-style:normal; font-family:var(--serif); font-weight:700; font-size:clamp(20px,3.6vh,36px); color:var(--ac); line-height:1}
-.hero-stats span{font-family:var(--mono); font-size:clamp(8.5px,1.15vh,11px); letter-spacing:.11em; text-transform:uppercase; color:var(--ink3)}
-.board{border:1px solid var(--rule); background:var(--white); box-shadow:0 20px 50px -34px rgba(12,20,22,.5)}
-.board-h{font-family:var(--mono); font-size:clamp(8.5px,1.15vh,10.5px); letter-spacing:.16em; text-transform:uppercase; color:var(--ink3); padding:1.3vh 14px; border-bottom:1px solid var(--rule); display:flex; justify-content:space-between}
-.board-s{padding:1.3vh 12px}
+.hero{display:grid; grid-template-columns:1.12fr .88fr; gap:clamp(24px,4vw,64px); align-items:center; width:100%}
+.hero-stats{display:flex; gap:clamp(20px,3vw,48px); margin-top:3.4vh; padding-top:2vh; border-top:2px solid var(--ink)}
+.hero-stats div{display:flex; flex-direction:column; gap:4px}
+.hero-stats em{font-style:normal; font-weight:700; font-size:clamp(22px,3.8vh,38px); color:var(--ac); line-height:1}
+.hero-stats span{font-size:var(--fs-min); font-weight:500; color:var(--ink3)}
+.board{border:1px solid var(--rule); background:var(--white); box-shadow:0 22px 54px -36px rgba(12,20,22,.5)}
+.board-h{font-size:var(--fs-min); font-weight:600; letter-spacing:.03em; color:var(--ink3); padding:1.4vh 16px; border-bottom:1px solid var(--rule)}
+.board-s{padding:1.4vh 14px}
 .board-s+.board-s{border-top:1px solid var(--rule)}
-.board-l{font-family:var(--mono); font-size:clamp(8px,1.1vh,10px); letter-spacing:.14em; text-transform:uppercase; color:var(--ac); margin-bottom:.9vh}
-.cellrow{display:grid; gap:5px}
+.board-l{font-size:var(--fs-min); font-weight:600; color:var(--ac); margin-bottom:1vh}
+.cellrow{display:grid; gap:6px}
 .cell{
-  display:flex; align-items:center; gap:10px; text-align:left; width:100%;
-  border:1px solid var(--rule); background:var(--soft); padding:.95vh 10px; cursor:pointer; border-radius:2px;
-  font-family:var(--sans); font-size:clamp(11px,1.55vh,14px); color:var(--ink2); line-height:1.2;
+  display:flex; align-items:baseline; gap:12px; text-align:left; width:100%;
+  border:1px solid var(--rule); background:var(--soft); padding:1.05vh 12px; cursor:pointer; border-radius:3px;
+  font-family:var(--f); font-size:var(--fs-min); font-weight:500; color:var(--ink2); line-height:1.3;
   transition:border-color .16s, background .16s, color .16s, transform .16s;
 }
-.cell code{font-family:var(--mono); font-size:clamp(10px,1.4vh,12.5px); font-weight:600; color:var(--ac); flex:none}
+.cell code{font-family:var(--f); font-size:var(--fs-min); font-weight:700; color:var(--ac); flex:none}
 .cell:hover{border-color:var(--ac); background:var(--acsoft); color:var(--ink); transform:translateX(3px)}
 
-/* ---------- плитки направлений ---------- */
-.tiles{display:grid; gap:clamp(10px,1.4vw,18px); width:100%; height:100%}
+/* ---------- плитки ---------- */
+.tiles{display:grid; gap:clamp(12px,1.5vw,20px); width:100%}
 .tile{
-  border:1px solid var(--rule); background:var(--white); border-radius:2px; cursor:pointer;
-  padding:clamp(14px,2.4vh,26px); display:flex; flex-direction:column; gap:1.2vh; text-align:left;
+  border:1px solid var(--rule); background:var(--white); border-radius:3px; cursor:pointer;
+  padding:clamp(16px,2.6vh,28px); display:flex; flex-direction:column; gap:1.4vh; text-align:left;
   transition:border-color .18s, box-shadow .18s, transform .18s; min-height:0;
 }
-.tile:hover{border-color:var(--ac); box-shadow:0 16px 34px -26px rgba(12,20,22,.55); transform:translateY(-3px)}
-.tile .ico{flex:none; height:clamp(38px,7vh,64px)}
+.tile:hover{border-color:var(--ac); box-shadow:0 18px 36px -28px rgba(12,20,22,.55); transform:translateY(-3px)}
+.tile .ico{flex:none; height:clamp(40px,6.4vh,60px)}
 .tile .ico svg{height:100%; width:auto; display:block}
-.tile .code{font-family:var(--mono); font-size:clamp(11px,1.5vh,13px); font-weight:600; color:var(--ac); letter-spacing:.06em}
-.tile h3{font-family:var(--serif); font-weight:600; font-size:clamp(15px,2.5vh,25px); line-height:1.12; margin:0; letter-spacing:-.012em}
-.tile p{margin:0; font-size:clamp(11px,1.6vh,14px); line-height:1.42; color:var(--ink2); flex:1; min-height:0}
-.tile .ft{display:flex; align-items:center; gap:8px; flex-wrap:wrap}
+.tile .code{font-size:var(--fs-min); font-weight:700; color:var(--ac); letter-spacing:.05em}
+.tile p{margin:0; font-size:var(--fs-body); line-height:1.44; color:var(--ink2); flex:1; min-height:0}
 
-/* ---------- сплит-компоновка ---------- */
-.split{display:grid; grid-template-columns:1fr auto; gap:clamp(20px,3.4vw,56px); width:100%; height:100%; align-items:center}
-.split.rev{grid-template-columns:auto 1fr}
-.vizbox{min-width:0; min-height:0; height:100%; display:flex; align-items:center}
-.side{display:flex; flex-direction:column; gap:2vh; width:clamp(180px,20vw,300px)}
+/* ---------- разрыв ---------- */
+.gaprow{display:grid; grid-template-columns:clamp(180px,20vw,290px) 1fr; gap:clamp(16px,2.2vw,32px); align-items:center}
+.gapname{font-weight:700; font-size:var(--fs-h3); line-height:1.12; text-align:right}
+.gapbar{display:flex; height:clamp(52px,8.4vh,86px); border:1px solid var(--rule); border-radius:3px; overflow:hidden}
+.gapseen{flex:none; background:var(--ac); display:flex; align-items:center; padding:0 clamp(12px,1.4vw,20px)}
+.gapseen span{color:var(--white); font-size:var(--fs-min); font-weight:600; line-height:1.3}
+.gapblind{
+  flex:1; display:flex; align-items:center; padding:0 clamp(14px,1.6vw,24px); background:var(--soft);
+  background-image:repeating-linear-gradient(-45deg,transparent 0 7px,rgba(12,20,22,.08) 7px 8px);
+}
+.gapblind span{font-size:var(--fs-body); font-weight:500; color:var(--ink2); line-height:1.34}
 
-/* ---------- шкала доказательности ---------- */
-.tiers{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(12px,1.8vw,24px); width:100%}
-.tier{border:1px solid var(--rule); border-radius:2px; background:var(--white); overflow:hidden; display:flex; flex-direction:column}
-.tier .segs{display:flex; gap:3px; padding:12px 14px 0}
-.tier .segs i{flex:1; height:7px; background:var(--soft2); border-radius:1px}
-.tier[data-t="v"] .segs i:nth-child(-n+3){background:var(--ac)}
-.tier[data-t="w"] .segs i:nth-child(-n+2){background:var(--am)}
-.tier[data-t="m"] .segs i:nth-child(-n+1){background:var(--rule2)}
-.tier .in{padding:1.6vh 14px 1.8vh}
-.tier .nm{font-family:var(--mono); font-size:clamp(9.5px,1.35vh,12px); letter-spacing:.14em; text-transform:uppercase; margin-bottom:.9vh}
-.tier[data-t="v"] .nm{color:var(--ac)} .tier[data-t="w"] .nm{color:var(--am)} .tier[data-t="m"] .nm{color:var(--ink3)}
-.tier p{margin:0; font-size:clamp(11.5px,1.62vh,15px); line-height:1.42; color:var(--ink2)}
-.tier .ex{margin-top:1.4vh; padding-top:1.2vh; border-top:1px solid var(--rule); font-family:var(--mono); font-size:clamp(9px,1.28vh,11.5px); line-height:1.5; color:var(--ink3)}
-.tier .ex b{color:var(--ink2); font-weight:500}
+/* ---------- шаги / списки ---------- */
+.steps{display:flex; flex-direction:column; gap:1.8vh; margin:0; padding:0; list-style:none}
+.step{display:grid; grid-template-columns:34px 1fr; gap:16px; align-items:baseline}
+.step .n{font-size:var(--fs-body); font-weight:700; color:var(--ac); font-variant-numeric:tabular-nums}
+.step p{margin:0; font-size:var(--fs-body); line-height:1.44; color:var(--ink2)}
+.step p b{color:var(--ink); font-weight:600}
+
+.causes{display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(10px,1.3vw,18px); width:100%}
+.cause{border:1px solid var(--rule); border-top:3px solid var(--ac); border-radius:3px; padding:clamp(14px,2vh,20px); background:var(--white)}
+.cause .h{font-size:var(--fs-h3); font-weight:600; line-height:1.14; margin-bottom:.9vh}
+.cause p{margin:0; font-size:var(--fs-min); line-height:1.4; color:var(--ink2)}
+
+.metrics{display:flex; flex-wrap:wrap; gap:9px}
 
 /* ---------- финал ---------- */
-.fin{display:grid; grid-template-columns:1fr 1fr; gap:clamp(22px,3.6vw,60px); width:100%; align-items:center}
-.asks{display:flex; flex-direction:column; gap:1.6vh}
-.ask{display:grid; grid-template-columns:34px 1fr; gap:16px; align-items:baseline; border-bottom:1px solid var(--rule); padding-bottom:1.5vh}
-.ask:last-child{border-bottom:0}
-.ask .n{font-family:var(--mono); font-size:clamp(13px,1.9vh,16px); font-weight:600; color:var(--ac)}
-.ask h3{font-family:var(--serif); font-weight:600; font-size:clamp(15px,2.5vh,24px); margin:0 0 .5vh; line-height:1.1}
-.ask p{margin:0; font-size:clamp(11.5px,1.6vh,14.5px); line-height:1.4; color:var(--ink2)}
-.gets{display:flex; flex-direction:column; gap:1.2vh}
-.get{display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:start; font-size:clamp(11.5px,1.62vh,15px); line-height:1.4; color:var(--ink2)}
-.get code{font-family:var(--mono); font-size:clamp(10px,1.4vh,12px); font-weight:600; color:var(--ac); padding-top:2px}
-.get b{color:var(--ink); font-weight:600}
-.no{display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:start; font-size:clamp(11.5px,1.62vh,15px); line-height:1.4; color:var(--ink2)}
-.no span{color:var(--cl); font-family:var(--mono)}
-
-@media (max-width:900px){
-  .hero,.split,.split.rev,.fin{grid-template-columns:1fr; gap:2.4vh}
-  .side{width:100%}
-  .tiers{grid-template-columns:1fr}
+.nda{
+  border:1px solid var(--ac); background:var(--acsoft); border-radius:3px;
+  padding:clamp(16px,2.4vh,26px) clamp(18px,2vw,30px); display:flex; gap:clamp(18px,2.4vw,36px);
+  align-items:center; flex-wrap:wrap;
 }
+.nda .big{font-size:var(--fs-h3); font-weight:700; line-height:1.2; color:var(--ink); flex:1; min-width:280px}
+.nda p{margin:0; font-size:var(--fs-body); line-height:1.42; color:var(--ink2); flex:1; min-width:260px}
+.finsteps{display:grid; grid-template-columns:repeat(5,1fr); gap:clamp(10px,1.3vw,18px)}
+.fs{display:flex; flex-direction:column; gap:.9vh; border-top:2px solid var(--rule2); padding-top:1.4vh}
+.fs[data-hot="1"]{border-top-color:var(--ac)}
+.fs .n{font-size:var(--fs-body); font-weight:700; color:var(--ac); font-variant-numeric:tabular-nums}
+.fs .t{font-size:var(--fs-h3); font-weight:600; line-height:1.14}
+.fs .w{font-size:var(--fs-min); font-weight:500; color:var(--ink3)}
+.fs p{margin:0; font-size:var(--fs-min); line-height:1.42; color:var(--ink2)}
+
+@media (max-width:960px){
+  .hero,.causes,.finsteps{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr}
+  .gaprow{grid-template-columns:1fr; gap:8px}
+  .gapname{text-align:left}
+}
+.split{display:grid; grid-template-columns:1fr clamp(230px,24vw,340px); gap:clamp(22px,3.4vw,54px); width:100%; height:100%; align-items:center}
+.vizbox{min-width:0; min-height:0; height:100%; display:flex; align-items:center}
+.side{display:flex; flex-direction:column; gap:2.2vh}
 </style>
 
 <div id="root"></div>
@@ -212,113 +212,72 @@ svg text{font-family:var(--sans)}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.26.0/babel.min.js"></script>
 <script type="text/babel" data-presets="react">
-const {useState, useEffect, useCallback, useRef} = React;
+const {useState, useEffect, useCallback} = React;
 
-/* ======== утилиты ======== */
-const SP = 0.5; // общее сжатие тайминга: слайд полностью читается за ~0,7 с
+const SP = 0.5;
 const D = d => ({'--d': Math.round(d * SP) + 'ms'});
-
-function Counter({to, dec=0, dur=900, delay=250}){
-  const [v, setV] = useState(0);
-  useEffect(() => {
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){ setV(to); return; }
-    let raf; const t0 = performance.now() + delay * SP;
-    const tick = now => {
-      if(now < t0){ raf = requestAnimationFrame(tick); return; }
-      const p = Math.min(1, (now - t0) / dur);
-      setV(to * (1 - Math.pow(1 - p, 3)));
-      if(p < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [to, dur, delay]);
-  return <>{v.toFixed(dec).replace('.', ',')}</>;
-}
+const NB = ' '; // неразрывный пробел для разрядов
 
 const Head = ({eyebrow, right, title, sub}) => (
   <div className="s-head">
-    <div className="eyebrow rv" style={D(0)}>
-      <span>{eyebrow}</span><span className="sp">{right}</span>
-    </div>
+    {(eyebrow || right) && (
+      <div className="eyebrow rv" style={D(0)}>
+        <span>{eyebrow}</span><span className="sp">{right}</span>
+      </div>
+    )}
     <h2 className="rv" style={D(60)}>{title}</h2>
     {sub && <p className="sub rv" style={D(140)}>{sub}</p>}
   </div>
 );
+const Src = ({children}) => <div className="s-foot"><div className="src rv" style={D(640)}>{children}</div></div>;
 
-const Src = ({children}) => <div className="s-foot"><div className="src rv" style={D(700)}>{children}</div></div>;
-
-const Big = ({n, suf, pre, cap, delay=300}) => (
-  <div className="big rv" style={D(delay)}>
-    <div className="n">{pre}{n}{suf && <small>{suf}</small>}</div>
-    <div className="cap">{cap}</div>
-  </div>
-);
-
-/* ======== иконки направлений ======== */
+/* ======== иконки ======== */
 const IC = {
-  A1: <svg viewBox="0 0 64 48" fill="none"><g stroke="var(--ac)" strokeWidth="1.6">
-        <rect x="1" y="8" width="17" height="13" rx="1" fill="var(--acsoft)"/>
-        <rect x="22" y="8" width="17" height="13" rx="1" fill="var(--acsoft)"/>
-        <rect x="43" y="8" width="17" height="13" rx="1" fill="var(--acsoft)"/>
-        <rect x="1" y="27" width="17" height="13" rx="1" fill="var(--acsoft)"/>
-        <rect x="22" y="27" width="17" height="13" rx="1" strokeDasharray="3 3" fill="none"/>
-        <rect x="43" y="27" width="17" height="13" rx="1" fill="var(--acsoft)"/>
-        <path d="M30.5 46 L30.5 41.5 M27.5 43.5 L30.5 40.5 L33.5 43.5"/>
-      </g></svg>,
-  A2: <svg viewBox="0 0 64 48" fill="none"><g stroke="var(--ac)" strokeWidth="1.6">
-        <rect x="8" y="4" width="34" height="40" rx="1.5" fill="var(--acsoft)"/>
-        <path d="M15 14h20M15 21h20M15 28h12"/>
-        <circle cx="46" cy="34" r="11" fill="var(--white)"/>
-        <path d="M46 28v6l4 3"/>
-      </g></svg>,
-  A3: <svg viewBox="0 0 64 48" fill="none"><g stroke="var(--ac)" strokeWidth="1.6">
+  A1: <svg viewBox="0 0 64 48" fill="none"><g stroke="var(--ac)" strokeWidth="1.8">
+        <rect x="1" y="8" width="17" height="13" rx="1" fill="var(--acsoft)"/><rect x="22" y="8" width="17" height="13" rx="1" fill="var(--acsoft)"/>
+        <rect x="43" y="8" width="17" height="13" rx="1" fill="var(--acsoft)"/><rect x="1" y="27" width="17" height="13" rx="1" fill="var(--acsoft)"/>
+        <rect x="22" y="27" width="17" height="13" rx="1" strokeDasharray="3 3" fill="none"/><rect x="43" y="27" width="17" height="13" rx="1" fill="var(--acsoft)"/>
+        <path d="M30.5 46.5 L30.5 41 M27.5 43.5 L30.5 40.5 L33.5 43.5"/></g></svg>,
+  A2: <svg viewBox="0 0 64 48" fill="none"><g stroke="var(--ac)" strokeWidth="1.8">
+        <rect x="8" y="4" width="34" height="40" rx="1.5" fill="var(--acsoft)"/><path d="M15 14h20M15 21h20M15 28h12"/>
+        <circle cx="46" cy="34" r="11" fill="var(--white)"/><path d="M46 28v6l4 3"/></g></svg>,
+  A3: <svg viewBox="0 0 64 48" fill="none"><g stroke="var(--ac)" strokeWidth="1.8">
         <rect x="6" y="3" width="52" height="42" rx="1.5" fill="var(--acsoft)"/>
-        <rect x="13" y="11" width="9" height="7" rx="1" fill="var(--ac)"/>
-        <path d="M27 14.5h24"/>
-        <rect x="13" y="24" width="9" height="7" rx="1" fill="var(--ac)"/>
-        <path d="M27 27.5h18"/>
-        <rect x="13" y="37" width="9" height="7" rx="1" strokeDasharray="2.5 2.5"/>
-        <path d="M27 40.5h21"/>
-      </g></svg>,
-  A4: <svg viewBox="0 0 64 48" fill="none"><g stroke="var(--ac)" strokeWidth="1.6">
-        <path d="M6 40a26 26 0 0 1 52 0" fill="var(--acsoft)"/>
-        <path d="M32 40 L48 22" strokeWidth="2.4" strokeLinecap="round"/>
-        <circle cx="32" cy="40" r="3.4" fill="var(--ac)"/>
-        <path d="M11 33.5l3.5 2M32 12v4M53 33.5l-3.5 2"/>
-      </g></svg>,
-  B1: <svg viewBox="0 0 64 48" fill="none"><g stroke="var(--ac)" strokeWidth="1.6">
-        <ellipse cx="12" cy="9" rx="10" ry="4.2" fill="var(--acsoft)"/>
-        <path d="M2 9v10c0 2.3 4.5 4.2 10 4.2s10-1.9 10-4.2V9"/>
-        <ellipse cx="12" cy="34" rx="10" ry="4.2" fill="var(--acsoft)"/>
-        <path d="M2 34v9c0 2.3 4.5 4.2 10 4.2s10-1.9 10-4.2v-9"/>
+        <rect x="13" y="11" width="9" height="7" rx="1" fill="var(--ac)"/><path d="M27 14.5h24"/>
+        <rect x="13" y="24" width="9" height="7" rx="1" fill="var(--ac)"/><path d="M27 27.5h18"/>
+        <rect x="13" y="37" width="9" height="7" rx="1" strokeDasharray="2.5 2.5"/><path d="M27 40.5h21"/></g></svg>,
+  A4: <svg viewBox="0 0 64 48" fill="none"><g stroke="var(--ac)" strokeWidth="1.8">
+        <path d="M6 40a26 26 0 0 1 52 0" fill="var(--acsoft)"/><path d="M32 40 L48 22" strokeWidth="2.6" strokeLinecap="round"/>
+        <circle cx="32" cy="40" r="3.4" fill="var(--ac)"/><path d="M11 33.5l3.5 2M32 12v4M53 33.5l-3.5 2"/></g></svg>,
+  B1: <svg viewBox="0 0 64 48" fill="none"><g stroke="var(--ac)" strokeWidth="1.8">
+        <ellipse cx="12" cy="9" rx="10" ry="4.2" fill="var(--acsoft)"/><path d="M2 9v10c0 2.3 4.5 4.2 10 4.2s10-1.9 10-4.2V9"/>
+        <ellipse cx="12" cy="34" rx="10" ry="4.2" fill="var(--acsoft)"/><path d="M2 34v9c0 2.3 4.5 4.2 10 4.2s10-1.9 10-4.2v-9"/>
         <path d="M24 16h9c3 0 3 12 6 12M24 40h9c3 0 3-12 6-12" strokeDasharray="3 3"/>
-        <rect x="42" y="17" width="20" height="22" rx="1.5" fill="var(--acsoft)"/>
-        <path d="M47 33v-7M52 33v-11M57 33v-4"/>
-      </g></svg>,
-  B2: <svg viewBox="0 0 64 48" fill="none"><g stroke="var(--ac)" strokeWidth="1.6">
-        <circle cx="26" cy="26" r="19" fill="var(--acsoft)"/>
-        <circle cx="26" cy="26" r="10"/>
-        <circle cx="50" cy="14" r="11" fill="var(--white)"/>
-        <path d="M50 8v6l4 2.5"/>
-      </g></svg>,
-  B3: <svg viewBox="0 0 64 48" fill="none"><g stroke="var(--ac)" strokeWidth="1.6">
-        <path d="M2 44h60"/>
-        <rect x="7" y="30" width="10" height="14" fill="var(--acsoft)"/>
-        <rect x="22" y="24" width="10" height="20" fill="var(--acsoft)"/>
-        <rect x="37" y="8" width="10" height="36" fill="var(--cl)" stroke="var(--cl)" opacity=".85"/>
-        <rect x="52" y="27" width="10" height="17" fill="var(--acsoft)"/>
-        <path d="M2 18h60" stroke="var(--cl)" strokeDasharray="4 3"/>
-      </g></svg>,
+        <rect x="42" y="17" width="20" height="22" rx="1.5" fill="var(--acsoft)"/><path d="M47 33v-7M52 33v-11M57 33v-4"/></g></svg>,
+  B2: <svg viewBox="0 0 64 48" fill="none"><g stroke="var(--ac)" strokeWidth="1.8">
+        <circle cx="26" cy="26" r="19" fill="var(--acsoft)"/><circle cx="26" cy="26" r="10"/>
+        <circle cx="50" cy="14" r="11" fill="var(--white)"/><path d="M50 8v6l4 2.5"/></g></svg>,
+  B3: <svg viewBox="0 0 64 48" fill="none"><g stroke="var(--ac)" strokeWidth="1.8">
+        <path d="M2 44h60"/><rect x="7" y="30" width="10" height="14" fill="var(--acsoft)"/><rect x="22" y="24" width="10" height="20" fill="var(--acsoft)"/>
+        <rect x="37" y="8" width="10" height="36" fill="var(--cl)" stroke="var(--cl)" opacity=".85"/><rect x="52" y="27" width="10" height="17" fill="var(--acsoft)"/>
+        <path d="M2 18h60" stroke="var(--cl)" strokeDasharray="4 3"/></g></svg>,
 };
 
 const IDEAS = [
-  {id:'A1', u:'Охрана', t:'Экосистема замены смен', p:'Закрытие смены перестаёт быть звонком и становится данными. Прототип уже есть.', m:'Pilot now'},
-  {id:'A2', u:'Охрана', t:'Единый трекер допусков', p:'Охранник с просроченным документом аппаратно не попадает в список замен.', m:'Pilot now'},
-  {id:'A3', u:'Охрана', t:'Отчётность через проформы', p:'Свободный текст не агрегируется. Выбор из справочника — агрегируется.', m:'Deploy now'},
-  {id:'A4', u:'Охрана', t:'Топливо на данных ГЛОНАСС', p:'Факт против нормы АМ-23-р. Треки превращаются в список машин для разбора.', m:'Deploy now'},
-  {id:'B1', u:'Питание', t:'Аналитический слой', p:'Staging и витрины поверх кассовой и складской систем — без их замены.', m:'Pilot now'},
-  {id:'B2', u:'Питание', t:'Предзаказ блюд', p:'Заказ сотрудника и есть прогноз. Точность растёт без всякого ML.', m:'Pilot now'},
-  {id:'B3', u:'Питание', t:'Food cost и причины', p:'Actual vs theoretical по блюдам и объектам — и чем вызвано отклонение.', m:'Pilot now'},
+  {id:'A1', u:'МегаЩит', t:'Автоматизация поиска замены охранника',
+   p:'Система автоматически отбирает подходящих сотрудников и ускоряет поиск замены при невыходе охранника.', m:'Готово к пилоту'},
+  {id:'A2', u:'МегаЩит', t:'Единый трекер допусков',
+   p:'Система заранее отслеживает сроки документов и исключает сотрудников с просроченными допусками из доступных замен.', m:'Готово к пилоту'},
+  {id:'A3', u:'МегаЩит', t:'Структурированная оперативная отчётность',
+   p:'Рапорты заполняются через стандартную форму, поэтому данные автоматически агрегируются по объектам и типам событий.', m:'Можно внедрять'},
+  {id:'A4', u:'МегаЩит', t:'Контроль расхода топлива по ГЛОНАСС',
+   p:'Система сравнивает фактический расход с нормативом и автоматически выделяет автомобили с аномальными отклонениями.', m:'Можно внедрять'},
+  {id:'B1', u:'СН-Торг', t:'Единый аналитический слой R-Keeper и StoreHouse',
+   p:'Данные кассы и склада автоматически собираются в единый аналитический контур без замены существующих систем.', m:'Готово к пилоту'},
+  {id:'B2', u:'СН-Торг', t:'Предзаказ питания',
+   p:'Сотрудники заранее выбирают блюда, а кухня получает фактический спрос до начала приготовления.', m:'Готово к пилоту'},
+  {id:'B3', u:'СН-Торг', t:'Контроль себестоимости питания',
+   p:'Система сравнивает фактический и нормативный расход продуктов и показывает причины отклонений по блюдам и объектам.', m:'Готово к пилоту'},
 ];
 
 /* ======== 01 · титул ======== */
@@ -326,52 +285,39 @@ function STitle({go}){
   return (
     <div className="slide">
       <div className="s-head">
-        <div className="eyebrow rv" style={D(0)}>
-          <span>Совет директоров · <b>холдинг</b></span>
-          <span className="sp">Проход 2 · сентябрь 2026</span>
-        </div>
+        <div className="eyebrow rv" style={D(0)}><span className="sp">Сентябрь 2026</span></div>
       </div>
       <div className="s-body">
         <div className="hero">
           <div>
             <h1 className="rv" style={D(60)}>Семь направлений автоматизации</h1>
             <p className="sub rv" style={D(200)}>
-              <b>Охрана и питание.</b> Что можно запустить за 2–3 недели силами 1–3 разработчиков —
-              и чем именно это доказывается.
+              Семь инициатив для МегаЩита и СН-Торга, которые можно быстро проверить на реальных процессах.
             </p>
             <div className="hero-stats rv" style={D(320)}>
-              <div><em>2</em><span>контура</span></div>
-              <div><em>7</em><span>направлений</span></div>
-              <div><em>3</em><span>уровня доказательности</span></div>
-              <div><em>0</em><span>замен систем</span></div>
+              <div><em>2</em><span>направления бизнеса</span></div>
+              <div><em>7</em><span>инициатив</span></div>
+              <div><em>2–3</em><span>недели на MVP</span></div>
             </div>
           </div>
           <div className="board rv" style={D(260)}>
-            <div className="board-h"><span>Табель направлений</span><span>MVP 2–3 нед.</span></div>
-            <div className="board-s">
-              <div className="board-l">Контур персонала · Охрана</div>
-              <div className="cellrow">
-                {IDEAS.filter(i => i.u === 'Охрана').map((i, k) => (
-                  <button className="cell pop" style={D(380 + k*70)} key={i.id} onClick={() => go(i.id)}>
-                    <code>{i.id}</code><span>{i.t}</span>
-                  </button>
-                ))}
+            <div className="board-h">Инициативы</div>
+            {[['МегаЩит','МегаЩит'],['СН-Торг','СН-Торг']].map(([u], gi) => (
+              <div className="board-s" key={u}>
+                <div className="board-l">{u}</div>
+                <div className="cellrow">
+                  {IDEAS.filter(i => i.u === u).map((i, k) => (
+                    <button className="cell pop" style={D(380 + gi*280 + k*70)} key={i.id} onClick={() => go(i.id)}>
+                      <code>{i.id}</code><span>{i.t}</span>
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
-            <div className="board-s">
-              <div className="board-l">Контур данных · Питание</div>
-              <div className="cellrow">
-                {IDEAS.filter(i => i.u === 'Питание').map((i, k) => (
-                  <button className="cell pop" style={D(660 + k*70)} key={i.id} onClick={() => go(i.id)}>
-                    <code>{i.id}</code><span>{i.t}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
-      <Src>← → листать · Enter по плитке — перейти к направлению</Src>
+      <Src></Src>
     </div>
   );
 }
@@ -379,699 +325,593 @@ function STitle({go}){
 /* ======== 02 · разрыв ======== */
 function SGap(){
   const rows = [
-    ['Смена закрыта', 'Кто закрыл, за сколько минут, в который раз', 26],
-    ['Топливо потрачено', 'Сколько сверх нормы АМ-23-р и на каких машинах', 20],
-    ['Порции приготовлены', 'Сколько съели и сколько ушло в мусор', 30],
+    ['Замена охранника', 'Смена закрыта', 'Сколько времени занял поиск замены и кто реально вышел на пост, нигде не фиксируется.', 22],
+    ['Расход топлива', 'Топливо списано', 'Сколько израсходовано сверх норматива и на каких автомобилях, из путевых листов не видно.', 26],
+    ['Питание на объектах', 'Порции приготовлены', 'Сколько порций забрали сотрудники и сколько ушло в списание, узнают уже по итогам месяца.', 30],
   ];
   return (
     <div className="slide">
-      <Head eyebrow="Главное" right="Один диагноз на семь направлений"
-        title="Все семь — про один и тот же разрыв"
-        sub={<>Между тем, что <b>происходит на самом деле</b>, и тем, что <b>видно руководителю</b>. Каждое направление ниже делает один такой разрыв измеримым.</>} />
+      <Head eyebrow="Постановка задачи" title="Сегодня ключевые процессы сложно измерять в реальном времени"
+        sub={<>Три примера из семи инициатив: <b>результат процесса известен, а его причины и стоимость остаются вне учёта</b>.</>} />
       <div className="s-body">
-        <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'2.6vh'}}>
-          <div style={{display:'grid', gridTemplateColumns:'clamp(150px,17vw,230px) 1fr', gap:'clamp(14px,2vw,28px)'}}>
+        <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'3.4vh'}}>
+          <div className="gaprow">
             <div />
             <div style={{display:'flex', justifyContent:'space-between'}}>
               <span className="lbl ac">Видно сейчас</span>
-              <span className="lbl">Не видно — и не измеряется</span>
+              <span className="lbl">Не видно и не измеряется</span>
             </div>
           </div>
           {rows.map((r, i) => (
-            <div key={i} style={{display:'grid', gridTemplateColumns:'clamp(150px,17vw,230px) 1fr', gap:'clamp(14px,2vw,28px)', alignItems:'center'}}>
-              <div className="rv" style={{...D(200 + i*130), fontFamily:'var(--serif)', fontWeight:600, fontSize:'clamp(14px,2.3vh,23px)', lineHeight:1.1, textAlign:'right'}}>{r[0]}</div>
-              <div style={{display:'flex', height:'clamp(38px,7.2vh,74px)', border:'1px solid var(--rule)', borderRadius:'2px', overflow:'hidden'}}>
-                <div className="gx" style={{...D(300 + i*130), width:r[2] + '%', background:'var(--ac)', flex:'none'}} />
-                <div className="hatch gx" style={{...D(420 + i*130), flex:1, display:'flex', alignItems:'center', paddingLeft:'clamp(12px,1.6vw,22px)', background:'var(--soft)'}}>
-                  <span style={{fontSize:'clamp(11px,1.68vh,15.5px)', color:'var(--ink2)', fontWeight:500}}>{r[1]}</span>
-                </div>
+            <div className="gaprow" key={i}>
+              <div className="gapname rv" style={D(200 + i*130)}>{r[0]}</div>
+              <div className="gapbar">
+                <div className="gapseen gx" style={{...D(300 + i*130), width:r[3] + '%'}}><span>{r[1]}</span></div>
+                <div className="gapblind gx" style={D(420 + i*130)}><span>{r[2]}</span></div>
               </div>
             </div>
           ))}
         </div>
       </div>
-      <Src>Публичных российских бенчмарков ни по ЧОП, ни по промышленному питанию нет — первые цифры появляются из пилота</Src>
+      <Src></Src>
     </div>
   );
 }
 
-/* ======== 03 · доказательность ======== */
-function STiers(){
-  const t = [
-    ['v','Подтверждено','Независимый источник: отраслевое исследование, государственные данные, публикация NGO. Проверяемо третьей стороной.','Исследование на 2,6 млн коммерческих ТС: idling 1 ч 25 мин в день'],
-    ['w','Заявлено вендором','Цифра из материалов поставщика. Без независимого аудита. Ориентир, а не обещание.','Платформа для ЧОП: поиск замены «с часов до минут»'],
-    ['m','Механизм','Эффект объясним по механике процесса, но количественных данных по РФ нет. Так и пишем.','Исключение штрафов за недопуск охранника с просрочкой'],
-  ];
-  return (
-    <div className="slide">
-      <Head eyebrow="Дисциплина отчёта" right="Применено к каждой цифре в презентации"
-        title="Три уровня доказательности"
-        sub={<>Цвет полосы у каждого эффекта дальше кодирует ровно одно — <b>насколько этой цифре можно верить</b>.</>} />
-      <div className="s-body">
-        <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'2.6vh'}}>
-          <div className="tiers">
-            {t.map((x, i) => (
-              <div className="tier rv" data-t={x[0]} style={D(220 + i*120)} key={x[0]}>
-                <div className="segs"><i /><i /><i /></div>
-                <div className="in">
-                  <div className="nm">{x[1]}</div>
-                  <p>{x[2]}</p>
-                  <div className="ex"><b>Пример: </b>{x[3]}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="rv" style={{...D(620), border:'1px solid var(--cl)', background:'var(--clsoft)', borderRadius:'2px', padding:'clamp(12px,1.9vh,20px) clamp(14px,1.6vw,22px)', display:'flex', gap:'clamp(14px,2vw,26px)', alignItems:'center', flexWrap:'wrap'}}>
-            <span className="chip" data-t="f">Не выдано за эффект</span>
-            <span style={{fontSize:'clamp(11.5px,1.62vh,15px)', lineHeight:1.4, color:'var(--ink2)', flex:1, minWidth:'260px'}}>
-              Громкие <b style={{color:'var(--ink)'}}>−33 %</b> и <b style={{color:'var(--ink)'}}>≈ −50 %</b> из корпоративного кейтеринга — это программы отслеживания
-              отходов, а не предзаказа. Метрики платформ для сетей гостеприимства — другой контекст, не столовая. Западная текучесть 50,8 % — масштаб проблемы, не эффект продукта.
-            </span>
-          </div>
-        </div>
-      </div>
-      <Src>Нормативка РФ проверена на 2025–2026: переход на ФЗ № 427-ФЗ и Приказ Росгвардии № 178 с 01.09.2026</Src>
-    </div>
-  );
-}
-
-/* ======== 04 · карта ======== */
+/* ======== 03 · карта ======== */
 function SMap(){
   const N = ({x, y, w, h, code, l, s, core, d}) => (
     <g className="pop" style={D(d)}>
-      <rect x={x} y={y} width={w} height={h} rx="2" fill={core ? 'var(--acsoft)' : 'var(--white)'}
-            stroke={core ? 'var(--ac)' : 'var(--rule2)'} strokeWidth={core ? 2 : 1.2} />
-      <text className="t-code" x={x + 16} y={y + 26}>{code}</text>
-      <text className="t-lbl" x={x + 16} y={y + 47} style={{fontWeight:600}}>{l}</text>
-      <text className="t-sub" x={x + 16} y={y + 66}>{s}</text>
+      <rect x={x} y={y} width={w} height={h} rx="3" fill={core ? 'var(--acsoft)' : 'var(--white)'}
+            stroke={core ? 'var(--ac)' : 'var(--rule2)'} strokeWidth={core ? 2.4 : 1.4} />
+      <text className="t-code" x={x + 18} y={y + 30}>{code}</text>
+      <text className="t-lbl" x={x + 18} y={y + 56}>{l}</text>
+      {s && <text className="t-sub" x={x + 18} y={y + 80}>{s}</text>}
     </g>
   );
   return (
     <div className="slide">
-      <Head eyebrow="Архитектура" right="Как семь направлений собираются вместе"
-        title="Две связанные системы и один независимый контур" />
+      <Head eyebrow="Карта инициатив" title="Как семь инициатив связаны между собой"
+        sub={<>В охране ядром служит A1, а A2 и A3 дополняют его данными. В питании фундаментом служит B1: на его данных развиваются B2 и B3.</>} />
       <div className="s-body">
-        <svg className="viz" viewBox="0 0 1040 540" preserveAspectRatio="xMidYMid meet" role="img"
-             aria-label="Контур персонала Охранаа, контур данных Питаниеа и независимый контур транспорта">
+        <svg className="viz" viewBox="0 0 1000 478" preserveAspectRatio="xMidYMid meet" role="img"
+             aria-label="Схема связей: в охране A2 и A3 дополняют A1, в питании B1 является основой для B2 и B3, A4 запускается независимо">
           <defs>
-            <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-              <path d="M0 0 L10 5 L0 10 z" fill="var(--rule2)" />
-            </marker>
-            <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+            <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
               <path d="M0 0 L10 5 L0 10 z" fill="var(--ac)" />
             </marker>
           </defs>
 
           <g className="rv" style={D(120)}>
-            <rect x="8" y="26" width="498" height="386" rx="2" fill="var(--soft)" stroke="var(--rule)" />
-            <text className="t-mono" x="28" y="16">КОНТУР ПЕРСОНАЛА · ОХРАНА</text>
+            <rect x="0" y="28" width="478" height="300" rx="3" fill="var(--soft)" stroke="var(--rule)" />
+            <text className="t-ax" x="4" y="18" style={{fill:'var(--ac)', fontWeight:600}}>МЕГАЩИТ: ПЕРСОНАЛ И СМЕНЫ</text>
           </g>
-          <N d={300} x={32} y={62} w={214} h={82} code="A2" l="Допуски" s="этапы и сроки" />
-          <N d={380} x={268} y={62} w={214} h={82} code="A3" l="Проформы" s="структурированные данные" />
-          <path className="dw" style={D(560)} d="M139 144 L139 186 Q139 198 155 198 L206 198 L206 226" fill="none" stroke="var(--rule2)" strokeWidth="1.4" markerEnd="url(#ar)" />
-          <path className="dw" style={D(620)} d="M375 144 L375 186 Q375 198 359 198 L310 198 L310 226" fill="none" stroke="var(--rule2)" strokeWidth="1.4" markerEnd="url(#ar)" />
-          <text className="t-mono rv" style={D(700)} x="150" y="180">фильтр допуска</text>
-          <text className="t-mono rv" style={D(700)} x="366" y="180" textAnchor="end">чистые данные</text>
-          <N d={460} x={96} y={226} w={324} h={94} code="A1" l="Замена смен + метрики" s="fill rate · time-to-fill · overtime" core />
-          <path className="dw" style={D(760)} d="M258 320 L258 350" fill="none" stroke="var(--ac)" strokeWidth="1.6" markerEnd="url(#ar2)" />
-          <g className="rv" style={D(820)}>
-            <rect x="32" y="354" width="450" height="42" rx="2" fill="var(--white)" stroke="var(--rule)" strokeDasharray="4 3" />
-            <text className="t-sub" x="52" y="380">Кто, где и с каким допуском стоит на постах. Где дефицит.</text>
-          </g>
+          <N d={260} x={20} y={58} w={210} h={72} code="A2" l="Допуски" />
+          <N d={320} x={248} y={58} w={210} h={72} code="A3" l="Отчётность" />
+          <path className="dw" style={D(520)} d="M125 130 L125 168 Q125 180 141 180 L172 180 L172 210" fill="none" stroke="var(--ac)" strokeWidth="1.6" markerEnd="url(#ar)" />
+          <path className="dw" style={D(560)} d="M353 130 L353 168 Q353 180 337 180 L306 180 L306 210" fill="none" stroke="var(--ac)" strokeWidth="1.6" markerEnd="url(#ar)" />
+          <N d={400} x={80} y={210} w={318} h={100} code="A1" l="Поиск замены охранника" s="ядро контура персонала" core />
 
-          <g className="rv" style={D(180)}>
-            <rect x="534" y="26" width="498" height="386" rx="2" fill="var(--soft)" stroke="var(--rule)" />
-            <text className="t-mono" x="554" y="16">КОНТУР ДАННЫХ · ПИТАНИЕ</text>
+          <g className="rv" style={D(160)}>
+            <rect x="522" y="28" width="478" height="300" rx="3" fill="var(--soft)" stroke="var(--rule)" />
+            <text className="t-ax" x="526" y="18" style={{fill:'var(--ac)', fontWeight:600}}>СН-ТОРГ: ДАННЫЕ И СЕБЕСТОИМОСТЬ</text>
           </g>
-          <N d={340} x={558} y={62} w={214} h={82} code="B2" l="Предзаказ" s="заказ = план порций" />
-          <N d={420} x={794} y={62} w={214} h={82} code="B3" l="Food cost" s="actual vs theoretical" />
-          <path className="dw" style={D(590)} d="M665 144 L665 186 Q665 198 681 198 L732 198 L732 226" fill="none" stroke="var(--rule2)" strokeWidth="1.4" markerEnd="url(#ar)" />
-          <path className="dw" style={D(650)} d="M901 144 L901 186 Q901 198 885 198 L836 198 L836 226" fill="none" stroke="var(--rule2)" strokeWidth="1.4" markerEnd="url(#ar)" />
-          <text className="t-mono rv" style={D(700)} x="676" y="180">плановый расход</text>
-          <text className="t-mono rv" style={D(700)} x="892" y="180" textAnchor="end">та же витрина</text>
-          <N d={500} x={622} y={226} w={324} h={94} code="B1" l="Staging и витрины" s="касса + склад, без замены систем" core />
-          <path className="dw" style={D(780)} d="M784 320 L784 350" fill="none" stroke="var(--ac)" strokeWidth="1.6" markerEnd="url(#ar2)" />
-          <g className="rv" style={D(840)}>
-            <rect x="558" y="354" width="450" height="42" rx="2" fill="var(--white)" stroke="var(--rule)" strokeDasharray="4 3" />
-            <text className="t-sub" x="578" y="380">Прогноз → производство → закупка → себестоимость.</text>
-          </g>
+          <N d={300} x={602} y={48} w={318} h={100} code="B1" l="Единый аналитический слой" s="фундамент контура данных" core />
+          <path className="dw" style={D(600)} d="M700 148 L700 180 Q700 192 684 192 L647 192 L647 222" fill="none" stroke="var(--ac)" strokeWidth="1.6" markerEnd="url(#ar)" />
+          <path className="dw" style={D(640)} d="M820 148 L820 180 Q820 192 836 192 L875 192 L875 222" fill="none" stroke="var(--ac)" strokeWidth="1.6" markerEnd="url(#ar)" />
+          <N d={460} x={542} y={222} w={210} h={72} code="B2" l="Предзаказ" />
+          <N d={520} x={770} y={222} w={210} h={72} code="B3" l="Себестоимость" />
 
-          <g className="rv" style={D(900)}>
-            <rect x="8" y="446" width="1024" height="76" rx="2" fill="var(--white)" stroke="var(--rule2)" strokeDasharray="5 4" />
-            <text className="t-code" x="32" y="478" style={{fontSize:'15px'}}>A4</text>
-            <text className="t-lbl" x="72" y="478" style={{fontWeight:600}}>Топливо на данных ГЛОНАСС</text>
-            <text className="t-sub" x="32" y="502">Независимый контур транспорта. Не зависит от остальных шести — запускается параллельно любой командой.</text>
+          <g className="rv" style={D(720)}>
+            <rect x="0" y="356" width="1000" height="94" rx="3" fill="var(--white)" stroke="var(--rule2)" strokeDasharray="6 4" />
+            <text className="t-code" x="24" y="392">A4</text>
+            <text className="t-lbl" x="70" y="392">Контроль расхода топлива по ГЛОНАСС</text>
+            <text className="t-sub" x="24" y="422">A4 запускается независимо от остальных инициатив.</text>
           </g>
         </svg>
       </div>
-      <Src>B2 даёт B3 точный плановый расход и тем самым сокращает разрыв actual vs theoretical</Src>
+      <Src></Src>
     </div>
   );
 }
 
-/* ======== 05 / 10 · плитки ======== */
-function STiles({unit, title, sub, go, cols}){
+/* ======== 04 / 09 · плитки ======== */
+function STiles({unit, title, go, cols}){
   const list = IDEAS.filter(i => i.u === unit);
   return (
     <div className="slide">
-      <Head eyebrow={<span><b>{unit}</b> · {list.length === 4 ? 'контур персонала' : 'контур данных'}</span>}
-            right="Плитка кликабельна" title={title} sub={sub} />
+      <Head eyebrow={unit} title={title} />
       <div className="s-body">
         <div className="tiles" style={{gridTemplateColumns:`repeat(${cols},1fr)`}}>
           {list.map((i, k) => (
-            <button className="tile rv" style={D(220 + k*110)} key={i.id} onClick={() => go(i.id)}>
+            <button className="tile rv" style={D(200 + k*110)} key={i.id} onClick={() => go(i.id)}>
               <div className="ico">{IC[i.id]}</div>
               <div className="code">{i.id}</div>
               <h3>{i.t}</h3>
               <p>{i.p}</p>
-              <div className="ft"><span className="chip" data-t={i.m === 'Deploy now' ? 'v' : 'm'}>{i.m}</span></div>
+              <div><span className="chip" data-t={i.m === 'Можно внедрять' ? 'v' : 'm'}>{i.m}</span></div>
             </button>
           ))}
         </div>
       </div>
-      <Src>Все семь проверяются MVP за 2–3 недели силами 1–3 разработчиков, без перестройки IT-ландшафта</Src>
+      <Src></Src>
     </div>
   );
 }
 
-/* ======== 06 · A1 ======== */
+/* ======== 05 · A1 ======== */
 function SA1(){
-  const st = [['Пул сотрудников', 100], ['Подходят по квалификации', 72], ['С действующим допуском', 48], ['Не в переработке', 30], ['Первый согласившийся', 13]];
+  const st = [['Все','сотрудники'], ['Нужная','квалификация'], ['Действующие','допуски'], ['Доступность','по графику'], ['Первый подтвердивший','смену']];
+  const met = ['Доля закрытых смен','Среднее время поиска замены','Число невыходов','Переработки','Число ручных звонков'];
+  const W = 256, G = 30;
   return (
     <div className="slide">
-      <Head eyebrow={<span><b>Охрана</b> · A1</span>} right="Pilot now · прототип есть"
-        title="Замена смены становится данными"
-        sub={<>Вместо обзвона «по знакомству» — фильтр по квалификации и допуску, фиксация первого согласившегося и <b>аудит-трейл каждого решения</b>.</>} />
+      <Head eyebrow={<span><b>МегаЩит</b> · A1</span>} right="Прототип уже работает"
+        title="Автоматизация поиска замены охранника"
+        sub={<>Вместо ручного обзвона система автоматически формирует подходящий пул сотрудников, отправляет запрос и фиксирует первого согласившегося.</>} />
       <div className="s-body">
-        <div className="split">
-          <div className="vizbox">
-            <svg className="viz" viewBox="0 0 700 330" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Воронка подбора замены из пяти шагов">
-              <text className="t-mono" x="0" y="14" style={{fill:'var(--ac)'}}>ВОРОНКА ПОДБОРА ЗАМЕНЫ</text>
-              {st.map((s, i) => {
-                const y = 36 + i*58, w = 660 * s[1] / 100;
-                return (
-                  <g key={i}>
-                    <rect className="gx" style={{...D(240 + i*110), transformOrigin:'0px 0px'}} x="0" y={y} width={w} height="40" rx="2"
-                          fill={i === 4 ? 'var(--ac)' : 'var(--acsoft)'} stroke={i === 4 ? 'var(--ac)' : 'var(--ac3)'} strokeWidth="1.2" />
-                    <text className="t-lbl rv" style={{...D(420 + i*110), fill: i === 4 ? 'var(--white)' : 'var(--ink)', fontWeight: i === 4 ? 600 : 400}} x="16" y={y + 25}>{s[0]}</text>
-                    {i < 4 && <path className="dw" style={D(360 + i*110)} d={`M${Math.max(20, w*0.5)} ${y+40} L${Math.max(20, w*0.5)} ${y+56}`} stroke="var(--rule2)" strokeWidth="1.3" fill="none" markerEnd="url(#arA)" />}
+        <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'4vh'}}>
+          <svg viewBox="0 0 1400 150" preserveAspectRatio="xMidYMid meet" style={{width:'100%', height:'auto'}} role="img"
+               aria-label="Пять шагов отбора: все сотрудники, нужная квалификация, действующие допуски, доступность по графику, первый подтвердивший смену">
+            <defs><marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--ac)" /></marker></defs>
+            {st.map((s, i) => {
+              const x = i * (W + G), last = i === 4;
+              return (
+                <g key={i}>
+                  <g className="pop" style={D(240 + i*110)}>
+                    <rect x={x} y="20" width={W} height="104" rx="3"
+                          fill={last ? 'var(--ac)' : 'var(--acsoft)'} stroke="var(--ac)" strokeWidth={last ? 2.4 : 1.4} />
+                    <text className="t-lbl" x={x + 20} y="62" style={{fill: last ? 'var(--white)' : 'var(--ink)'}}>{s[0]}</text>
+                    <text className="t-lbl" x={x + 20} y="90" style={{fill: last ? 'var(--white)' : 'var(--ink)'}}>{s[1]}</text>
                   </g>
-                );
-              })}
-              <defs><marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--rule2)" /></marker></defs>
-            </svg>
-          </div>
-          <div className="side">
-            <Big n={<Counter to={50.8} dec={1} />} suf="%" delay={340}
-                 cap={<>годовая текучесть в отрасли охраны против <b>38,4 %</b> по частному сектору США</>} />
-            <div className="rv" style={D(560)}><span className="chip" data-t="v">Подтверждено · отраслевое исследование, 2023</span></div>
-            <div className="rv" style={{...D(640), borderTop:'1px solid var(--rule)', paddingTop:'1.6vh'}}>
-              <div className="lbl" style={{marginBottom:'1vh'}}>Впервые измеримо</div>
-              <div style={{display:'flex', flexWrap:'wrap', gap:'6px'}}>
-                {['fill rate','time-to-fill','невыходы','overtime','ручные обзвоны'].map((k, i) =>
-                  <span className="chip pop" data-t="m" style={D(700 + i*70)} key={k}>{k}</span>)}
-              </div>
+                  {i < 4 && <path className="dw" style={D(320 + i*110)} d={`M${x + W + 4} 72 L${x + W + G - 6} 72`} fill="none" stroke="var(--ac)" strokeWidth="1.8" markerEnd="url(#arA)" />}
+                </g>
+              );
+            })}
+          </svg>
+          <div>
+            <div className="lbl ac rv" style={{...D(760), marginBottom:'1.4vh'}}>Показатели, которые появятся в отчётности после запуска</div>
+            <div className="metrics">
+              {met.map((m, i) => <span className="chip pop" data-t="m" style={D(820 + i*70)} key={m}>{m}</span>)}
             </div>
           </div>
         </div>
       </div>
-      <Src>Ширина шагов — схема процесса, не замер. Западные платформы для ЧОП выросли из шедулеров в операционные экосистемы; прямого российского аналога с публичными метриками не найдено</Src>
+      <Src></Src>
     </div>
   );
 }
 
-/* ======== 07 · A2 ======== */
+/* ======== 06 · A2 ======== */
 function SA2(){
-  const X0 = 306, X1 = 1012, span = X1 - X0;
+  const X0 = 300, X1 = 890, span = X1 - X0;
+  const rows = [{l:'Удостоверение', n:1}, {l:'Медицинское заключение', n:5}, {l:'Периодическая проверка', n:5}];
   const yr = n => X0 + span * n / 5;
-  const rows = [
-    {l:'Удостоверение', s:'Закон 2487-1', n:1},
-    {l:'Медзаключение 002-ЧО/у', s:'Приказ Минздрава 1252н', n:5},
-    {l:'Периодическая проверка', s:'Приказ № 387 → № 178', n:5},
-  ];
   return (
     <div className="slide">
-      <Head eyebrow={<span><b>Охрана</b> · A2</span>} right="Pilot now"
-        title="Одиннадцать дат истечения на одного охранника"
-        sub={<>Удостоверение — 5 лет, медзаключение и периодическая проверка — по году. <b>За пять лет это одиннадцать событий на человека</b>, которые сегодня живут в Excel.</>} />
+      <Head eyebrow={<span><b>МегаЩит</b> · A2</span>} right="Готово к пилоту"
+        title="Просроченный допуск не должен доходить до поста"
+        sub={<>Система хранит срок действия каждого обязательного документа, заранее предупреждает ответственного и автоматически исключает сотрудника из пула доступных замен.</>} />
       <div className="s-body">
         <div className="split">
           <div className="vizbox">
-            <svg className="viz" viewBox="0 0 1030 322" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Сроки действия документов охранника на горизонте пяти лет">
+            <svg className="viz" viewBox="0 0 910 300" preserveAspectRatio="xMidYMid meet" role="img"
+                 aria-label="Сроки действия обязательных документов охранника на горизонте пяти лет">
               {[0,1,2,3,4,5].map(n => (
                 <g key={n} className="rv" style={D(180 + n*40)}>
-                  <line x1={yr(n)} y1="34" x2={yr(n)} y2="266" stroke="var(--rule)" strokeWidth="1" />
-                  <text className="t-mono" x={yr(n)} y="288" textAnchor="middle">{n} {n === 0 ? 'лет' : n === 1 ? 'год' : n < 5 ? 'года' : 'лет'}</text>
+                  <line x1={yr(n)} y1="30" x2={yr(n)} y2="252" stroke="var(--rule)" />
+                  <text className="t-ax" x={yr(n)} y="278" textAnchor="middle">{n === 0 ? '0' : n}</text>
                 </g>
               ))}
+              <text className="t-ax" x={X1 + 16} y="278">лет</text>
               {rows.map((r, i) => {
-                const y = 58 + i*72, seg = span / r.n;
+                const y = 56 + i*68, seg = span / r.n;
                 return (
                   <g key={i}>
-                    <text className="t-lbl rv" style={{...D(260 + i*140), fontWeight:600}} x="0" y={y + 20}>{r.l}</text>
-                    <text className="t-mono rv" style={D(260 + i*140)} x="0" y={y + 38}>{r.s}</text>
+                    <text className="t-sub" x="0" y={y + 26} style={{fill:'var(--ink)', fontWeight:600}}>{r.l}</text>
                     {Array.from({length:r.n}).map((_, k) => (
                       <g key={k}>
-                        <rect className="gx" style={{...D(340 + i*140 + k*60), transformOrigin:`${X0 + k*seg}px 0px`}}
-                              x={X0 + k*seg + 3} y={y} width={seg - 6} height="34" rx="2"
-                              fill="var(--acsoft)" stroke="var(--ac)" strokeWidth="1.3" />
-                        <path className="pop" style={D(520 + i*140 + k*60)}
-                              d={`M${X0 + (k+1)*seg} ${y - 6} l6 -11 l-12 0 z`} fill="var(--cl)" />
+                        <rect className="gx" style={{...D(300 + i*130 + k*55), transformOrigin:`${X0 + k*seg}px 0px`}}
+                              x={X0 + k*seg + 3} y={y} width={seg - 6} height="36" rx="3"
+                              fill="var(--acsoft)" stroke="var(--ac)" strokeWidth="1.4" />
+                        <path className="pop" style={D(470 + i*130 + k*55)}
+                              d={`M${X0 + (k+1)*seg} ${y - 7} l7 -12 l-14 0 z`} fill="var(--cl)" />
                       </g>
                     ))}
                   </g>
                 );
               })}
-              <g className="rv" style={D(980)}>
-                <line x1={X0} y1="266" x2={X1} y2="266" stroke="var(--ink)" strokeWidth="1.4" />
-                <text className="t-mono" x="0" y="270" style={{fill:'var(--cl)'}}>▲ дата истечения</text>
+              <g className="rv" style={D(900)}>
+                <line x1={X0} y1="252" x2={X1} y2="252" stroke="var(--ink)" strokeWidth="1.6" />
+                <path d="M14 246 l7 -12 l-14 0 z" fill="var(--cl)" />
+                <text className="t-ax" x="30" y="252" style={{fill:'var(--cl)'}}>дата истечения</text>
               </g>
             </svg>
           </div>
           <div className="side">
-            <Big n={<Counter to={11} />} delay={620}
-                 cap={<>дат истечения на <b>одного</b> охранника за пятилетний цикл. На сто человек — <b>1100</b>.</>} />
-            <div className="rv" style={D(760)}><span className="chip" data-t="m">Механизм · цифр по РФ нет</span></div>
-            <div className="rv" style={{...D(820), borderLeft:'3px solid var(--cl)', paddingLeft:'14px'}}>
-              <div className="lbl" style={{color:'var(--cl)', marginBottom:'.6vh'}}>С 01.09.2026</div>
-              <div style={{fontSize:'clamp(11px,1.6vh,14.5px)', lineHeight:1.4, color:'var(--ink2)'}}>
-                Приказ № 387 сменяется на № 178, часть закона 2487-1 — на ФЗ № 427-ФЗ. Правила в системе должны быть конфигурируемыми.
-              </div>
+            <ol className="steps">
+              {[
+                'В системе хранится срок действия каждого обязательного документа сотрудника.',
+                'До истечения срока ответственный получает уведомление.',
+                'Сотрудник с просроченным документом автоматически исключается из пула доступных замен.',
+              ].map((s, i) => (
+                <li className="step rv" style={D(320 + i*140)} key={i}><span className="n">0{i+1}</span><p>{s}</p></li>
+              ))}
+            </ol>
+            <div className="rv" style={{...D(760), borderTop:'1px solid var(--rule)', paddingTop:'1.8vh'}}>
+              <p style={{margin:0, fontSize:'var(--fs-min)', lineHeight:1.45, color:'var(--ink2)'}}>
+                За пятилетний цикл на одного охранника приходится 11 дат истечения. На сто человек это {'1' + NB + '100'} событий, которые сегодня отслеживаются вручную.
+              </p>
             </div>
           </div>
         </div>
       </div>
-      <Src>Закон РФ 2487-1 (ред. 25.05.2026) · Приказ Минздрава № 1252н, форма 002-ЧО/у · Приказ Росгвардии № 387 → № 178 от 19.05.2026</Src>
+      <Src>Удостоверение действует 5 лет, медицинское заключение и периодическая проверка обновляются ежегодно (Закон РФ № 2487-1, Приказ Росгвардии № 178).</Src>
     </div>
   );
 }
 
-/* ======== 08 · A3 ======== */
+/* ======== 07 · A3 ======== */
 function SA3(){
+  const flow = [['Свободный','текст'], ['Стандартная','форма'], ['Структурированные','данные'], ['Автоматическая','сводка']];
   const bars = [['Проход на объект', 62], ['Нарушение режима', 44], ['Техника', 31], ['Медицина', 18], ['Прочее', 12]];
+  const W = 300, G = 40;
   return (
     <div className="slide">
-      <Head eyebrow={<span><b>Охрана</b> · A3</span>} right="Deploy now"
-        title="Текст не агрегируется. Справочник — агрегируется"
-        sub={<>Пошаговый мастер вместо свободного набора: <b>рапорт в пять тапов</b> — и та же сводка по типам инцидентов, которую сегодня собрать невозможно.</>} />
+      <Head eyebrow={<span><b>МегаЩит</b> · A3</span>} right="Можно внедрять"
+        title="Стандартная форма превращает рапорты в аналитические данные"
+        sub={<>Сотрудник заполняет рапорт выбором из справочников, поэтому события сразу агрегируются по объектам и типам без ручной обработки.</>} />
       <div className="s-body">
-        <svg className="viz" viewBox="0 0 1020 330" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Свободный текст против структурированной формы и сводки по типам инцидентов">
-          <text className="t-mono" x="0" y="12">СЕЙЧАС · СВОБОДНЫЙ ТЕКСТ</text>
-          <g className="rv" style={D(200)}>
-            <rect x="0" y="26" width="300" height="230" rx="2" fill="var(--soft)" stroke="var(--rule)" />
-            {[0,1,2,3,4,5,6,7].map(i => (
-              <rect key={i} x="24" y={52 + i*24} width={[236,210,248,190,224,166,238,132][i]} height="8" rx="4" fill="var(--rule2)" opacity=".75" />
-            ))}
-          </g>
-          <g className="rv" style={D(320)}>
-            <rect x="0" y="266" width="300" height="42" rx="2" fill="var(--clsoft)" stroke="var(--cl)" strokeDasharray="4 3" />
-            <text className="t-sub" x="20" y="292" style={{fill:'var(--cl)', fontWeight:600}}>Сводка невозможна</text>
-          </g>
-
-          <path className="dw" style={D(420)} d="M320 140 L378 140" stroke="var(--ac)" strokeWidth="1.6" fill="none" markerEnd="url(#arB)" />
-          <defs><marker id="arB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--ac)" /></marker></defs>
-
-          <text className="t-mono" x="396" y="12" style={{fill:'var(--ac)'}}>ПОСЛЕ · ВЫБОР ИЗ СПРАВОЧНИКА</text>
-          <g className="rv" style={D(480)}>
-            <rect x="396" y="26" width="272" height="230" rx="2" fill="var(--white)" stroke="var(--ac)" strokeWidth="1.4" />
-            {['Объект','Пост','Тип события','Время'].map((f, i) => (
-              <g key={f} className="pop" style={D(560 + i*90)}>
-                <text className="t-mono" x="418" y={62 + i*52}>{f.toUpperCase()}</text>
-                <rect x="418" y={70 + i*52} width="228" height="30" rx="2" fill="var(--acsoft)" stroke="var(--ac3)" strokeWidth="1.2" />
-                <path d={`M632 ${82 + i*52} l6 7 l6 -7`} stroke="var(--ac)" strokeWidth="1.6" fill="none" />
-              </g>
-            ))}
-          </g>
-          <g className="rv" style={D(920)}>
-            <rect x="396" y="266" width="272" height="42" rx="2" fill="var(--acsoft)" stroke="var(--ac)" />
-            <text className="t-sub" x="416" y="292" style={{fill:'var(--ac)', fontWeight:600}}>Структурированные данные</text>
-          </g>
-
-          <text className="t-mono" x="712" y="12">СВОДКА ПО ТИПАМ · ПРИМЕР</text>
-          <g>
-            {bars.map((b, i) => (
-              <g key={i}>
-                <text className="t-sub" x="712" y={54 + i*50}>{b[0]}</text>
-                <rect className="gx" style={{...D(680 + i*100), transformOrigin:'712px 0px'}}
-                      x="712" y={62 + i*50} width={b[1] * 3} height="20" rx="2" fill="var(--ac)" opacity={1 - i*0.13} />
-                <text className="t-num rv" style={D(880 + i*100)} x={712 + b[1]*3 + 10} y={77 + i*50}>{b[1]}</text>
-              </g>
-            ))}
-          </g>
-        </svg>
-      </div>
-      <Src>Пример сводки — иллюстративные значения. WCAG 2.2: контраст 4,5 : 1, критерий 2.5.5 Target Size · гайдлайны мобильных платформ: кнопки от 44 × 44 px. Голосового ввода нет</Src>
-    </div>
-  );
-}
-
-/* ======== 09 · A4 ======== */
-function SA4(){
-  const X0 = 258, SC = 3.28; // 1 мин = 3.28px, шкала до 200 мин
-  const bars = [
-    {l:'Медиана по парку', s:'ориентир', v:60, c:'var(--ac3)'},
-    {l:'Среднее по 2,6 млн ТС', s:'1 ч 25 мин в день', v:85, c:'var(--ac)'},
-    {l:'Худшие 10 % машин', s:'свыше 3 часов в день', v:180, c:'var(--cl)'},
-  ];
-  return (
-    <div className="slide">
-      <Head eyebrow={<span><b>Охрана</b> · A4</span>} right="Deploy now · на существующих выгрузках"
-        title="Холостой ход — это топливо, которое видно"
-        sub={<>Нормативный расход по АМ-23-р сравнивается с фактом из ГЛОНАСС. На выходе — <b>топ-10 аномальных машин</b> с оценкой перерасхода в рублях.</>} />
-      <div className="s-body">
-        <div className="split">
-          <div className="vizbox">
-            <svg className="viz" viewBox="0 0 1000 320" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Холостой ход: медиана, среднее и худшие десять процентов машин в минутах в день">
-              <text className="t-mono" x="0" y="12" style={{fill:'var(--ac)'}}>ХОЛОСТОЙ ХОД, МИНУТ В ДЕНЬ</text>
-              {[0,60,120,180].map(t => (
-                <g key={t} className="rv" style={D(160 + t)}>
-                  <line x1={X0 + t*SC} y1="30" x2={X0 + t*SC} y2="250" stroke="var(--rule)" />
-                  <text className="t-mono" x={X0 + t*SC} y="272" textAnchor="middle">{t}</text>
-                </g>
-              ))}
-              {bars.map((b, i) => {
-                const y = 56 + i*66;
-                return (
-                  <g key={i}>
-                    <text className="t-lbl rv" style={{...D(280 + i*160), fontWeight:600}} x="0" y={y + 20}>{b.l}</text>
-                    <text className="t-mono rv" style={D(280 + i*160)} x="0" y={y + 37}>{b.s}</text>
-                    <rect className="gx" style={{...D(360 + i*160), transformOrigin:`${X0}px 0px`}}
-                          x={X0} y={y} width={b.v * SC} height="40" rx="2" fill={b.c} />
-                    <text className="t-num rv" style={{...D(620 + i*160), fill:'var(--ink)', fontWeight:600, fontSize:'14px'}}
-                          x={X0 + b.v*SC + 12} y={y + 26}>{b.v} мин</text>
-                  </g>
-                );
-              })}
-              <line className="rv" style={D(900)} x1={X0} y1="250" x2={X0 + 200*SC} y2="250" stroke="var(--ink)" strokeWidth="1.4" />
-            </svg>
-          </div>
-          <div className="side">
-            <Big n={<Counter to={24.2} dec={1} />} suf=" млн" delay={400}
-                 cap={<>галлонов в год сэкономили бы США, приведя <b>худшие 10 %</b> к медиане — около <b>105 млн долларов</b></>} />
-            <div className="rv" style={D(620)}><span className="chip" data-t="v">Подтверждено · 2,6 млн ТС, 2026</span></div>
-            <div className="rv" style={{...D(700), background:'var(--soft)', border:'1px solid var(--rule)', borderRadius:'2px', padding:'clamp(10px,1.6vh,16px) 14px'}}>
-              <div className="lbl ac" style={{marginBottom:'.8vh'}}>Норма АМ-23-р</div>
-              <div style={{fontFamily:'var(--mono)', fontSize:'clamp(12px,1.75vh,16px)', color:'var(--ink)', marginBottom:'.7vh'}}>Hs × (1 + D / 100)</div>
-              <div style={{fontSize:'clamp(10.5px,1.5vh,13.5px)', lineHeight:1.4, color:'var(--ink2)'}}>Зимняя надбавка 5–20 % по субъектам, кондиционер до 7 % — несовместим с зимней.</div>
-            </div>
-            <div className="rv" style={D(780)}><span className="chip" data-t="f">Без ДУТ сливы не доказываются</span></div>
-          </div>
-        </div>
-      </div>
-      <Src>Распоряжение Минтранса № АМ-23-р (ред. 30.09.2021) · независимое исследование парка, июнь 2025 — май 2026 · разобранный кейс: idling −30 %, экономичность +25 %</Src>
-    </div>
-  );
-}
-
-/* ======== 11 · B1 ======== */
-function SB1(){
-  const stages = [
-    {x:250, l:'Staging', s:'аналитическая БД'},
-    {x:430, l:'Нормализация', s:'справочники'},
-    {x:610, l:'Сверка', s:'касса ↔ склад'},
-    {x:790, l:'Витрины', s:'5 схем'},
-  ];
-  const dash = ['Продажи','Себестоимость','Списания','Остатки','Цены закупки'];
-  return (
-    <div className="slide">
-      <Head eyebrow={<span><b>Питание</b> · B1</span>} right="Pilot now · фундамент контура данных"
-        title="Две базы, один поток, пять дашбордов"
-        sub={<>Обе системы остаются на месте. Надстройка снимает данные и даёт то, чего в них нет — <b>кросс-объектную аналитику</b>.</>} />
-      <div className="s-body">
-        <svg className="viz" viewBox="0 0 1020 356" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Конвейер данных от кассовой и складской систем через staging к пяти витринам">
-          <defs>
-            <marker id="arC" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--rule2)" /></marker>
-          </defs>
-
-          {[['Кассовая система','SQL · чеки, позиции, смены',18],['Складская система','SQL · ТТК, списания, FIFO',110]].map((s, i) => (
-            <g key={i} className="rv" style={D(180 + i*110)}>
-              <rect x="0" y={s[2]} width="180" height="62" rx="2" fill="var(--acsoft)" stroke="var(--ac)" strokeWidth="1.4" />
-              <text className="t-lbl" x="18" y={s[2] + 26} style={{fontWeight:600}}>{s[0]}</text>
-              <text className="t-mono" x="18" y={s[2] + 45}>{s[1]}</text>
-            </g>
-          ))}
-          <path className="dw" style={D(380)} d="M180 49 L206 49 Q224 49 224 68 L224 96" fill="none" stroke="var(--rule2)" strokeWidth="1.4" markerEnd="url(#arC)" />
-          <path className="dw" style={D(420)} d="M180 141 L206 141 Q224 141 224 122 L224 96" fill="none" stroke="var(--rule2)" strokeWidth="1.4" markerEnd="url(#arC)" />
-
-          {stages.map((s, i) => (
-            <g key={i}>
-              <g className="pop" style={D(480 + i*110)}>
-                <rect x={s.x} y="64" width="150" height="64" rx="2"
-                      fill={i === 3 ? 'var(--ac)' : 'var(--white)'} stroke="var(--ac)" strokeWidth={i === 3 ? 2 : 1.3} />
-                <text className="t-lbl" x={s.x + 16} y="93" style={{fontWeight:600, fill: i === 3 ? 'var(--white)' : 'var(--ink)'}}>{s.l}</text>
-                <text className="t-mono" x={s.x + 16} y="111" style={{fill: i === 3 ? 'var(--ac3)' : 'var(--ink3)'}}>{s.s}</text>
-              </g>
-              {i < 3 && <path className="dw" style={D(560 + i*110)} d={`M${s.x + 150} 96 L${s.x + 174} 96`} fill="none" stroke="var(--rule2)" strokeWidth="1.4" markerEnd="url(#arC)" />}
-            </g>
-          ))}
-
-          <path className="dw" style={D(900)} d="M865 128 L865 162 M84 162 L946 162 M84 162 L84 186 M300 162 L300 186 M515 162 L515 186 M731 162 L731 186 M946 162 L946 186"
-                fill="none" stroke="var(--ac)" strokeWidth="1.3" />
-          {dash.map((d, i) => {
-            const x = 14 + i*216;
-            return (
-              <g key={d} className="pop" style={D(960 + i*70)}>
-                <rect x={x} y="188" width="140" height="52" rx="2" fill="var(--acsoft)" stroke="var(--ac)" strokeWidth="1.2" />
-                <text className="t-mono" x={x + 14} y="209" style={{fill:'var(--ac)', fontWeight:600}}>0{i+1}</text>
-                <text className="t-sub" x={x + 14} y="229" style={{fill:'var(--ink)', fontWeight:600}}>{d}</text>
-              </g>
-            );
-          })}
-          <g className="rv" style={D(1060)}>
-            <rect x="0" y="272" width="1018" height="64" rx="2" fill="var(--clsoft)" stroke="var(--cl)" strokeDasharray="4 3" />
-            <text className="t-mono" x="20" y="296" style={{fill:'var(--cl)', fontWeight:600}}>ПОДВОДНЫЕ КАМНИ</text>
-            <text className="t-sub" x="20" y="319" style={{fill:'var(--ink2)'}}>
-              FIFO пересчитывается задним числом · разные версии складской системы на объектах · нет интернета на вахтах · модификаторы типа «услуга» искажают списание
-            </text>
-          </g>
-        </svg>
-      </div>
-      <Src>Интеграция: XML-интерфейс через шлюз · штатная служба обмена на порту 8087 · регламентные выгрузки по расписанию. Обмен нового поколения работает только со старшей версией складской системы</Src>
-    </div>
-  );
-}
-
-/* ======== 12 · B2 ======== */
-function SB2(){
-  const U = 2.7; // 1 порция = 2.7px
-  return (
-    <div className="slide">
-      <Head eyebrow={<span><b>Питание</b> · B2</span>} right="Pilot now"
-        title="Заказ сотрудника и есть прогноз"
-        sub={<>Точность растёт <b>без всякого ML</b>: предзаказ переносит точку прогноза с повара на сотрудника, а переготовка исчезает из actual.</>} />
-      <div className="s-body">
-        <div className="split">
-          <div className="vizbox">
-            <svg className="viz" viewBox="0 0 760 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Двести приготовленных порций против ста шестидесяти съеденных и то же самое с предзаказом">
-              <text className="t-mono" x="0" y="14">СЕЙЧАС · ПРОГНОЗ «НА ГЛАЗ»</text>
-              <g>
-                <rect className="gx" style={{...D(240), transformOrigin:'0px 0px'}} x="0" y="34" width={160*U} height="54" rx="2" fill="var(--ac)" />
-                <rect className="gx hatch" style={{...D(420), transformOrigin:`${160*U}px 0px`}} x={160*U} y="34" width={40*U} height="54" rx="2" fill="var(--clsoft)" stroke="var(--cl)" strokeWidth="1.3" />
-                <text className="t-lbl rv" style={{...D(560), fill:'var(--white)', fontWeight:600}} x="18" y="66">160 съедено</text>
-                <text className="t-mono rv" style={{...D(600), fill:'var(--cl)'}} x={160*U + 12} y="110">40 в мусор</text>
-                <text className="t-mono rv" style={D(600)} x="0" y="110">приготовлено 200</text>
-              </g>
-
-              <text className="t-mono" x="0" y="176" style={{fill:'var(--ac)'}}>С ПРЕДЗАКАЗОМ</text>
-              <g>
-                <rect className="gx" style={{...D(720), transformOrigin:'0px 0px'}} x="0" y="196" width={160*U} height="54" rx="2" fill="var(--ac)" />
-                <text className="t-lbl rv" style={{...D(900), fill:'var(--white)', fontWeight:600}} x="18" y="228">160 заказано = 160 приготовлено</text>
-                <text className="t-mono rv" style={{...D(940), fill:'var(--ac)'}} x="0" y="272">переготовка 0 — заказ и есть план производства</text>
-              </g>
-              <line className="rv" style={D(980)} x1={160*U} y1="26" x2={160*U} y2="258" stroke="var(--ac)" strokeDasharray="4 4" strokeWidth="1.2" />
-            </svg>
-          </div>
-          <div className="side">
-            <Big n={<Counter to={1} />} suf=" млн" delay={400}
-                 cap={<>пользователей городской системы школьного питания — <b>4,3 тыс. зданий</b>, электронные лимиты и предзаказ с 2013 года</>} />
-            <div className="rv" style={D(620)}><span className="chip" data-t="v">Подтверждено · данные городского департамента</span></div>
-            <div className="rv" style={{...D(700), borderTop:'1px solid var(--rule)', paddingTop:'1.6vh', display:'flex', flexDirection:'column', gap:'1vh'}}>
-              <span className="chip" data-t="w">Вендор: 25–30 % overspending</span>
-              <span className="chip" data-t="v">Независимо: окупаемость 5 : 1 на прогнозе</span>
-              <span className="chip" data-t="f">Waste-tracking — это не предзаказ</span>
-            </div>
-            <div className="rv" style={{...D(800), fontSize:'clamp(10.5px,1.5vh,13.5px)', lineHeight:1.4, color:'var(--ink2)'}}>
-              Удержание из зарплаты не требует ККТ, если прописано в трудовом договоре — письма ФНС 2019 года.
-            </div>
-          </div>
-        </div>
-      </div>
-      <Src>Пример 200/160/40 — отраслевой кейс банкетной переготовки · городская система школьного питания · вендорские данные 2025 · cook-to-order киоски для вахтовых лагерей</Src>
-    </div>
-  );
-}
-
-/* ======== 13 · B3 ======== */
-function SB3(){
-  const X0 = 60, W = 880, MAX = 8, sx = v => X0 + W * v / MAX;
-  const factors = [['Цена закупки', 38, 'var(--ac)'], ['Недовложение к ТТК', 27, 'var(--ac2)'], ['Списания и порча', 21, 'var(--am)'], ['Меню-микс', 14, 'var(--rule2)']];
-  return (
-    <div className="slide">
-      <Head eyebrow={<span><b>Питание</b> · B3</span>} right="Pilot now · надстройка над B1"
-        title="Где именно утекает food cost"
-        sub={<>Actual против theoretical по каждому блюду и объекту — и <b>факторный разбор</b>: сколько дала цена, сколько недовложение, сколько списания.</>} />
-      <div className="s-body">
-        <div style={{width:'100%', height:'100%', display:'flex', flexDirection:'column', justifyContent:'center', gap:'3vh'}}>
-          <svg viewBox="0 0 1000 150" preserveAspectRatio="xMidYMid meet" style={{width:'100%', height:'auto'}} role="img" aria-label="Шкала отклонения actual от theoretical с порогами два и пять процентов">
-            <text className="t-mono" x={X0} y="14" style={{fill:'var(--ac)'}}>ОТКЛОНЕНИЕ ACTUAL ОТ THEORETICAL</text>
-            {[[0,2,'var(--ac)','Управляемо'],[2,5,'var(--am)','Есть куда расти'],[5,8,'var(--cl)','Расследование']].map((b, i) => (
-              <g key={i}>
-                <rect className="gx" style={{...D(260 + i*180), transformOrigin:`${sx(b[0])}px 0px`}}
-                      x={sx(b[0])} y="30" width={sx(b[1]) - sx(b[0])} height="46" rx="2" fill={b[2]} opacity=".92" />
-                <text className="t-lbl rv" style={{...D(420 + i*180), fill:'var(--white)', fontWeight:600, fontSize:'13px'}}
-                      x={sx(b[0]) + 14} y="59">{b[3]}</text>
-              </g>
-            ))}
-            {[0,2,5,8].map(v => (
-              <g key={v} className="rv" style={D(600 + v*40)}>
-                <line x1={sx(v)} y1="76" x2={sx(v)} y2="88" stroke="var(--ink2)" strokeWidth="1.2" />
-                <text className="t-num" x={sx(v)} y="106" textAnchor="middle" style={{fontWeight:600}}>{v} %</text>
-              </g>
-            ))}
-            <text className="t-mono rv" style={D(880)} x={X0} y="134">ниже 2 % — норма · 3–5 % — типично · выше 5 % — over-portioning, waste, theft или ошибки ТТК</text>
-          </svg>
-
-          <div>
-            <div className="lbl rv" style={{...D(760), marginBottom:'1.2vh'}}>Факторный разбор отклонения · пример</div>
-            <div style={{display:'flex', height:'clamp(34px,6vh,58px)', borderRadius:'2px', overflow:'hidden', border:'1px solid var(--rule)'}}>
-              {factors.map((f, i) => (
-                <div key={i} className="gx" style={{...D(820 + i*120), width:f[1] + '%', background:f[2], display:'flex', alignItems:'center', justifyContent:'center', transformOrigin:'left'}}>
-                  <span style={{fontFamily:'var(--mono)', fontSize:'clamp(10px,1.45vh,13px)', color: i === 3 ? 'var(--ink)' : 'var(--white)', fontWeight:600}}>{f[1]} %</span>
-                </div>
-              ))}
-            </div>
-            <div style={{display:'flex', marginTop:'1vh'}}>
-              {factors.map((f, i) => (
-                <div key={i} className="rv" style={{...D(980 + i*100), width:f[1] + '%', fontSize:'clamp(10px,1.45vh,13px)', color:'var(--ink2)', paddingRight:'8px', lineHeight:1.25}}>{f[0]}</div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-      <Src>Отраслевой бенчмарк · food cost 25–35 % · Штатно нет: кросс-объектного сравнения блюда, автовыявления аномалий, привязки отклонений к причинам, связки касса ↔ склад по смене</Src>
-    </div>
-  );
-}
-
-/* ======== 14 · приоритизация ======== */
-function SPrio({go}){
-  const X0 = 252, W = 726, WK = 9, sx = w => X0 + W * w / WK;
-  const bars = [
-    {id:'A1', l:'Замена смен + метрики', a:0, b:3, w:1},
-    {id:'B1', l:'Staging и витрины', a:0, b:3, w:1},
-    {id:'A4', l:'Топливо ГЛОНАСС', a:3, b:6, w:2},
-    {id:'B3', l:'Food cost', a:3, b:6, w:2},
-    {id:'A2', l:'Трекер допусков', a:6, b:9, w:3},
-    {id:'A3', l:'Проформы', a:6, b:9, w:3},
-    {id:'B2', l:'Предзаказ', a:6, b:9, w:3},
-  ];
-  const col = w => w === 1 ? 'var(--ac)' : w === 2 ? 'var(--ac2)' : 'var(--ac3)';
-  return (
-    <div className="slide">
-      <Head eyebrow="Очерёдность" right="Разные команды, разные системы — можно параллельно"
-        title="Три волны за девять недель"
-        sub={<>Первыми — <b>A1 и B1</b> одновременно: ядро контура персонала и фундамент контура данных. Конфликта за ресурс нет.</>} />
-      <div className="s-body">
-        <div style={{width:'100%', height:'100%', display:'flex', flexDirection:'column', justifyContent:'center', gap:'2.4vh'}}>
-          <svg viewBox="0 0 990 330" preserveAspectRatio="xMidYMid meet" style={{width:'100%', height:'auto', maxHeight:'62vh'}} role="img" aria-label="Диаграмма из трёх волн запуска на горизонте девяти недель">
-            {[0,3,6,9].map(w => (
-              <g key={w} className="rv" style={D(160 + w*30)}>
-                <line x1={sx(w)} y1="26" x2={sx(w)} y2="292" stroke="var(--rule)" />
-                <text className="t-mono" x={sx(w)} y="16" textAnchor="middle">{w} нед.</text>
-              </g>
-            ))}
-            {[[0,3,'Волна 1'],[3,6,'Волна 2'],[6,9,'Волна 3']].map((v, i) => (
-              <text key={i} className="t-mono rv" style={{...D(240 + i*90), fill: i === 0 ? 'var(--ac)' : 'var(--ink3)', fontWeight: i === 0 ? 600 : 400}}
-                    x={(sx(v[0]) + sx(v[1])) / 2} y="312" textAnchor="middle">{v[2]}</text>
-            ))}
-            {bars.map((b, i) => {
-              const y = 36 + i*36;
+        <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'4vh'}}>
+          <svg viewBox="0 0 1320 140" preserveAspectRatio="xMidYMid meet" style={{width:'100%', height:'auto'}} role="img"
+               aria-label="Свободный текст превращается в стандартную форму, структурированные данные и автоматическую сводку">
+            <defs><marker id="arB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--ac)" /></marker></defs>
+            {flow.map((f, i) => {
+              const x = i * (W + G), last = i === 3, first = i === 0;
               return (
-                <g key={b.id}>
-                  <text className="t-code rv" style={D(300 + i*90)} x="0" y={y + 19}>{b.id}</text>
-                  <text className="t-sub rv" style={D(300 + i*90)} x="40" y={y + 19}>{b.l}</text>
-                  <rect className="gx" style={{...D(360 + i*90), transformOrigin:`${sx(b.a)}px 0px`}}
-                        x={sx(b.a) + 3} y={y} width={sx(b.b) - sx(b.a) - 6} height="26" rx="2" fill={col(b.w)} />
+                <g key={i}>
+                  <g className="pop" style={D(220 + i*130)}>
+                    <rect x={x} y="14" width={W} height="102" rx="3"
+                          fill={last ? 'var(--ac)' : first ? 'var(--soft)' : 'var(--acsoft)'}
+                          stroke={first ? 'var(--rule2)' : 'var(--ac)'} strokeWidth={last ? 2.4 : 1.4}
+                          strokeDasharray={first ? '6 4' : '0'} />
+                    <text className="t-lbl" x={x + 22} y="56" style={{fill: last ? 'var(--white)' : first ? 'var(--ink3)' : 'var(--ink)'}}>{f[0]}</text>
+                    <text className="t-lbl" x={x + 22} y="84" style={{fill: last ? 'var(--white)' : first ? 'var(--ink3)' : 'var(--ink)'}}>{f[1]}</text>
+                  </g>
+                  {i < 3 && <path className="dw" style={D(300 + i*130)} d={`M${x + W + 6} 65 L${x + W + G - 8} 65`} fill="none" stroke="var(--ac)" strokeWidth="1.8" markerEnd="url(#arB)" />}
                 </g>
               );
             })}
           </svg>
 
-          <div style={{display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:'clamp(10px,1.4vw,18px)'}}>
-            {[
-              ['штрафы заказчика за непокрытие постов', 'A1 становится безусловно первым'],
-              ['аудит выявил крупные сливы топлива', 'A4 поднимается на первое место'],
-              ['food cost variance регулярно выше 5 %', 'B1 и B3 приоритетнее B2'],
-            ].map((t, i) => (
-              <div key={i} className="rv" style={{...D(900 + i*110), border:'1px dashed var(--rule2)', background:'var(--soft)', borderRadius:'2px', padding:'clamp(10px,1.5vh,16px) 14px'}}>
-                <div className="lbl" style={{color:'var(--cl)', marginBottom:'.6vh'}}>Если</div>
-                <div style={{fontSize:'clamp(11px,1.55vh,14px)', lineHeight:1.35, color:'var(--ink2)'}}>
-                  {t[0]} — <b style={{color:'var(--ink)'}}>{t[1]}</b>
+          <div className="rv" style={{...D(760), border:'1px solid var(--rule)', borderRadius:'3px', padding:'clamp(16px,2.2vh,24px) clamp(18px,2vw,28px)'}}>
+            <div style={{display:'flex', alignItems:'center', gap:'14px', marginBottom:'1.8vh', flexWrap:'wrap'}}>
+              <span className="lbl ac">Сводка по типам событий за неделю</span>
+              <span className="chip" data-t="f">Условный пример</span>
+            </div>
+            <div style={{display:'flex', flexDirection:'column', gap:'1vh'}}>
+              {bars.map((b, i) => (
+                <div key={i} style={{display:'grid', gridTemplateColumns:'clamp(160px,17vw,240px) 1fr', gap:'16px', alignItems:'center'}}>
+                  <span style={{fontSize:'var(--fs-min)', color:'var(--ink2)', fontWeight:500}}>{b[0]}</span>
+                  <div style={{display:'flex', alignItems:'center', gap:'12px'}}>
+                    <div className="gx" style={{...D(820 + i*90), width:`calc(${b[1]}% * 0.9)`, height:'clamp(16px,2.2vh,22px)', background:'var(--ac)', opacity:1 - i*0.12, borderRadius:'2px'}} />
+                    <span style={{fontSize:'var(--fs-min)', color:'var(--ink2)', fontVariantNumeric:'tabular-nums'}}>{b[1]}</span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
-      <Src>A2 и A3 расширяют готовый A1 · B2 запускается после того, как B1 даёт витрины — чтобы сразу мерить эффект предзаказа на переготовку</Src>
+      <Src></Src>
     </div>
   );
 }
 
-/* ======== 15 · финал ======== */
-function SEnd(){
+/* ======== 08 · A4 ======== */
+function SA4(){
+  const cars = [['Автомобиль 1', 34], ['Автомобиль 2', 27], ['Автомобиль 3', 19], ['Автомобиль 4', 11]];
   return (
     <div className="slide">
-      <Head eyebrow="Решение" right="Три вопроса, после которых начинается работа" title="Что решаем сегодня" />
+      <Head eyebrow={<span><b>МегаЩит</b> · A4</span>} right="Можно внедрять"
+        title="Контроль расхода топлива по ГЛОНАСС"
+        sub={<>Руководитель получает список автомобилей с наибольшим перерасходом топлива и может разбирать причины точечно.</>} />
       <div className="s-body">
-        <div className="fin">
-          <div className="asks">
-            {[
-              ['01','Стартуем A1 и B1 параллельно?','Разные команды, разные системы. Через три недели — живой статус закрытия смен и пять дашбордов по продажам, себестоимости, списаниям, остаткам и ценам.'],
-              ['02','Какие объекты даём под пилот?','Охрана — один объект с постами и 1–2 диспетчера. Питание — 2–3 объекта с read-only доступом. Желательно с разными версиями складской системы.'],
-              ['03','Кто со стороны бизнеса?','Диспетчер на A1, методолог на мэппинг справочников для B1, финдиректор — задать пороги variance для B3. Больше никого не нужно.'],
-            ].map((a, i) => (
-              <div className="ask rv" style={D(200 + i*130)} key={a[0]}>
-                <div className="n">{a[0]}</div>
-                <div><h3>{a[1]}</h3><p>{a[2]}</p></div>
-              </div>
-            ))}
+        <div className="split">
+          <div className="vizbox">
+            <svg className="viz" viewBox="0 0 900 340" preserveAspectRatio="xMidYMid meet" role="img"
+                 aria-label="Данные ГЛОНАСС и норматив расхода дают расчёт отклонения и список автомобилей для проверки">
+              <defs><marker id="arC" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--ac)" /></marker></defs>
+              {[['Данные ГЛОНАСС','пробег, треки, время в работе',20],['Норматив расхода','с применимыми коэффициентами',180]].map((s, i) => (
+                <g key={i} className="pop" style={D(220 + i*120)}>
+                  <rect x="0" y={s[2]} width="300" height="106" rx="3" fill="var(--acsoft)" stroke="var(--ac)" strokeWidth="1.4" />
+                  <text className="t-lbl" x="22" y={s[2] + 44}>{s[0]}</text>
+                  <text className="t-sub" x="22" y={s[2] + 74}>{s[1]}</text>
+                </g>
+              ))}
+              <path className="dw" style={D(440)} d="M300 73 L344 73 Q368 73 368 100 L368 146" fill="none" stroke="var(--ac)" strokeWidth="1.8" markerEnd="url(#arC)" />
+              <path className="dw" style={D(480)} d="M300 233 L344 233 Q368 233 368 206 L368 160" fill="none" stroke="var(--ac)" strokeWidth="1.8" markerEnd="url(#arC)" />
+              <g className="pop" style={D(540)}>
+                <rect x="380" y="100" width="220" height="106" rx="3" fill="var(--white)" stroke="var(--ac)" strokeWidth="1.4" />
+                <text className="t-lbl" x="402" y="144">Расчёт</text>
+                <text className="t-lbl" x="402" y="172">отклонения</text>
+              </g>
+              <path className="dw" style={D(640)} d="M600 153 L644 153" fill="none" stroke="var(--ac)" strokeWidth="1.8" markerEnd="url(#arC)" />
+              <g className="pop" style={D(700)}>
+                <rect x="656" y="100" width="244" height="106" rx="3" fill="var(--ac)" stroke="var(--ac)" strokeWidth="2.4" />
+                <text className="t-lbl" x="678" y="144" style={{fill:'var(--white)'}}>Список машин</text>
+                <text className="t-lbl" x="678" y="172" style={{fill:'var(--white)'}}>для проверки</text>
+              </g>
+            </svg>
           </div>
+          <div className="side">
+            <div className="rv" style={{...D(700), border:'1px solid var(--rule)', borderRadius:'3px', padding:'clamp(14px,2vh,20px)'}}>
+              <div style={{display:'flex', alignItems:'center', gap:'10px', marginBottom:'1.4vh', flexWrap:'wrap'}}>
+                <span className="lbl ac">Отклонение от норматива</span>
+                <span className="chip" data-t="f">Условный пример</span>
+              </div>
+              <div style={{display:'flex', flexDirection:'column', gap:'1vh'}}>
+                {cars.map((c, i) => (
+                  <div key={i} style={{display:'flex', alignItems:'center', gap:'10px'}}>
+                    <span style={{fontSize:'var(--fs-min)', color:'var(--ink2)', width:'clamp(96px,9vw,120px)', flex:'none'}}>{c[0]}</span>
+                    <div className="gx" style={{...D(760 + i*80), width:`${c[1]*2}%`, maxWidth:'55%', height:'14px', background: i === 0 ? 'var(--cl)' : 'var(--ac)', borderRadius:'2px'}} />
+                    <span style={{fontSize:'var(--fs-min)', color:'var(--ink)', fontWeight:600, fontVariantNumeric:'tabular-nums'}}>{c[1]}%</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <p className="rv" style={{...D(860), margin:0, fontSize:'var(--fs-min)', lineHeight:1.45, color:'var(--ink2)', borderLeft:'3px solid var(--cl)', paddingLeft:'14px'}}>
+              Данные ГЛОНАСС позволяют выявить аномалию, но для подтверждения факта слива потребуется дополнительный контроль, например ДУТ.
+            </p>
+          </div>
+        </div>
+      </div>
+      <Src>Норматив расхода рассчитывается по методике Минтранса с учётом применимых коэффициентов.</Src>
+    </div>
+  );
+}
 
-          <div style={{display:'flex', flexDirection:'column', gap:'2.6vh'}}>
-            <div>
-              <div className="lbl ac rv" style={{...D(420), marginBottom:'1.4vh'}}>Что будет через три недели</div>
-              <div className="gets">
-                {[
-                  ['A1','Живой статус закрытия смен: fill rate, time-to-fill, невыходы, overtime, число ручных обзвонов — за реальный период.'],
-                  ['B1','Пять дашбордов поверх реальных выгрузок с 2–3 объектов, со сверкой кассы и склада.'],
-                  ['↑','Первые собственные бенчмарки вместо чужих западных цифр.'],
-                ].map((g, i) => (
-                  <div className="get rv" style={D(480 + i*110)} key={i}><code>{g[0]}</code><span>{g[1]}</span></div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <div className="lbl rv" style={{...D(800), color:'var(--cl)', marginBottom:'1.4vh'}}>Чего не будет</div>
-              <div className="gets">
-                {[
-                  'Замены кассовой, складской, учётной систем или системы мониторинга.',
-                  'Закупки оборудования. ДУТ для контроля сливов — отдельный этап по результатам A4.',
-                  'Обещаний в процентах там, где количественный эффект по РФ не опубликован.',
-                ].map((n, i) => (
-                  <div className="no rv" style={D(860 + i*110)} key={i}><span>—</span><span>{n}</span></div>
-                ))}
-              </div>
-            </div>
-            <div className="hero-stats rv" style={{...D(1180), marginTop:0, borderTopColor:'var(--ac)'}}>
-              <div><em>1–3</em><span>разработчика</span></div>
-              <div><em>2–3</em><span>недели</span></div>
-              <div><em>0</em><span>замен систем</span></div>
+/* ======== 10 · B1 ======== */
+function SB1(){
+  const out = ['Продажи','Себестоимость','Списания','Остатки','Закупочные цены'];
+  return (
+    <div className="slide">
+      <Head eyebrow={<span><b>СН-Торг</b> · B1</span>} right="Готово к пилоту"
+        title="Единый аналитический слой R-Keeper и StoreHouse"
+        sub={<>Данные кассы и склада автоматически собираются в один контур без замены существующих систем, поэтому отчётность перестаёт зависеть от ручной сборки.</>} />
+      <div className="s-body">
+        <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'3.4vh'}}>
+          <svg viewBox="0 0 1240 250" preserveAspectRatio="xMidYMid meet" style={{width:'100%', height:'auto', maxHeight:'46vh'}} role="img"
+               aria-label="R-Keeper и StoreHouse собираются в единую базу, проходят автоматическую сверку и дают аналитику">
+            <defs><marker id="arD" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--ac)" /></marker></defs>
+            {[['R-Keeper','касса',14],['StoreHouse','склад',136]].map((s, i) => (
+              <g key={i} className="pop" style={D(200 + i*110)}>
+                <rect x="0" y={s[2]} width="250" height="100" rx="3" fill="var(--acsoft)" stroke="var(--ac)" strokeWidth="1.4" />
+                <text className="t-lbl" x="22" y={s[2] + 44}>{s[0]}</text>
+                <text className="t-sub" x="22" y={s[2] + 72}>{s[1]}</text>
+              </g>
+            ))}
+            <path className="dw" style={D(360)} d="M250 64 L294 64 Q318 64 318 92 L318 118" fill="none" stroke="var(--ac)" strokeWidth="1.8" markerEnd="url(#arD)" />
+            <path className="dw" style={D(400)} d="M250 186 L294 186 Q318 186 318 158 L318 132" fill="none" stroke="var(--ac)" strokeWidth="1.8" markerEnd="url(#arD)" />
+            {[['Единая база',330],['Автоматическая сверка',620]].map((s, i) => (
+              <g key={i} className="pop" style={D(460 + i*120)}>
+                <rect x={s[1]} y="75" width="260" height="100" rx="3" fill="var(--white)" stroke="var(--ac)" strokeWidth="1.4" />
+                <text className="t-lbl" x={s[1] + 22} y="132">{s[0]}</text>
+              </g>
+            ))}
+            <path className="dw" style={D(560)} d={"M590 125 L612 125"} fill="none" stroke="var(--ac)" strokeWidth="1.8" markerEnd="url(#arD)" />
+            <path className="dw" style={D(680)} d={"M880 125 L910 125"} fill="none" stroke="var(--ac)" strokeWidth="1.8" markerEnd="url(#arD)" />
+            <g className="pop" style={D(720)}>
+              <rect x="922" y="75" width="318" height="100" rx="3" fill="var(--ac)" stroke="var(--ac)" strokeWidth="2.4" />
+              <text className="t-lbl" x="946" y="132" style={{fill:'var(--white)'}}>Аналитика по объектам</text>
+            </g>
+          </svg>
+
+          <div>
+            <div className="lbl ac rv" style={{...D(820), marginBottom:'1.4vh'}}>Пять готовых разрезов аналитики</div>
+            <div className="metrics">
+              {out.map((o, i) => <span className="chip pop" data-t="v" style={D(860 + i*70)} key={o}>{o}</span>)}
             </div>
           </div>
         </div>
       </div>
-      <Src>Каждая цифра в презентации помечена уровнем доказательности · нормативка РФ проверена на 2025–2026</Src>
+      <Src>На пилоте потребуется учесть разные версии StoreHouse на объектах.</Src>
+    </div>
+  );
+}
+
+/* ======== 11 · B2 ======== */
+function SB2(){
+  return (
+    <div className="slide">
+      <Head eyebrow={<span><b>СН-Торг</b> · B2</span>} right="Готово к пилоту"
+        title="Предзаказ питания"
+        sub={<>Предзаказ переносит прогноз спроса с оценки повара на реальные заказы сотрудников и снижает риск переготовки.</>} />
+      <div className="s-body">
+        <div className="split">
+          <div className="vizbox" style={{flexDirection:'column', justifyContent:'center', gap:'2.4vh'}}>
+            <div style={{width:'100%'}}>
+              <div style={{display:'flex', alignItems:'center', gap:'14px', marginBottom:'1.6vh', flexWrap:'wrap'}}>
+                <span className="lbl">Прогноз по оценке повара</span>
+                <span className="chip" data-t="f">Иллюстративный пример</span>
+              </div>
+              <div style={{display:'flex', height:'clamp(48px,7.4vh,76px)', border:'1px solid var(--rule)', borderRadius:'3px', overflow:'hidden'}}>
+                <div className="gx" style={{...D(240), width:'80%', background:'var(--ac)', display:'flex', alignItems:'center', paddingLeft:'clamp(14px,1.6vw,22px)'}}>
+                  <span style={{color:'var(--white)', fontSize:'var(--fs-body)', fontWeight:600}}>160 порций востребовано</span>
+                </div>
+                <div className="gx" style={{...D(420), width:'20%', background:'var(--clsoft)', borderLeft:'1px solid var(--cl)', display:'flex', alignItems:'center', paddingLeft:'clamp(10px,1.2vw,16px)'}}>
+                  <span style={{color:'var(--cl)', fontSize:'var(--fs-min)', fontWeight:600}}>40 лишних</span>
+                </div>
+              </div>
+              <div className="rv" style={{...D(520), marginTop:'.9vh', fontSize:'var(--fs-min)', color:'var(--ink3)'}}>Приготовлено 200 порций</div>
+            </div>
+
+            <div style={{width:'100%'}}>
+              <div className="lbl ac rv" style={{...D(640), marginBottom:'1.6vh'}}>С предзаказом</div>
+              <div style={{display:'flex', height:'clamp(48px,7.4vh,76px)', border:'1px solid var(--rule)', borderRadius:'3px', overflow:'hidden'}}>
+                <div className="gx" style={{...D(700), width:'80%', background:'var(--ac)', display:'flex', alignItems:'center', paddingLeft:'clamp(14px,1.6vw,22px)'}}>
+                  <span style={{color:'var(--white)', fontSize:'var(--fs-body)', fontWeight:600}}>160 заказано и приготовлено</span>
+                </div>
+                <div style={{width:'20%', background:'var(--soft)'}} />
+              </div>
+              <div className="rv" style={{...D(820), marginTop:'.9vh', fontSize:'var(--fs-min)', color:'var(--ink3)'}}>Кухня готовит по фактическому спросу</div>
+            </div>
+          </div>
+
+          <div className="side">
+            <ol className="steps">
+              {[
+                'Сотрудник заранее выбирает блюда на смену в приложении, бригадир может оформить заказ за бригаду.',
+                'Кухня получает агрегированный спрос до начала приготовления.',
+                'Фактический спрос используется для планирования приготовления и закупок.',
+              ].map((s, i) => (
+                <li className="step rv" style={D(340 + i*150)} key={i}><span className="n">0{i+1}</span><p>{s}</p></li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </div>
+      <Src></Src>
+    </div>
+  );
+}
+
+/* ======== 12 · B3 ======== */
+function SB3(){
+  const flow = [['Норматив','по ТТК'], ['Фактический','расход'], ['Отклонение',''], ['Причина','отклонения']];
+  const causes = [
+    ['Закупочная цена', 'Продукт подорожал относительно цены, заложенной в расчёт.'],
+    ['Перерасход относительно ТТК', 'Фактически заложено больше продукта, чем предусмотрено картой.'],
+    ['Списания и порча', 'Продукт списан по браку, истёк срок или нарушены условия хранения.'],
+    ['Структура меню', 'Сместился спрос в сторону блюд с другой себестоимостью.'],
+  ];
+  const W = 290, G = 42;
+  return (
+    <div className="slide">
+      <Head eyebrow={<span><b>СН-Торг</b> · B3</span>} right="Готово к пилоту"
+        title="Почему фактическая себестоимость отличается от нормативной"
+        sub={<>Система сравнивает нормативный расход по технологическим картам с фактическим и показывает, чем именно вызвано отклонение по каждому блюду и объекту.</>} />
+      <div className="s-body">
+        <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'4vh'}}>
+          <svg viewBox="0 0 1286 130" preserveAspectRatio="xMidYMid meet" style={{width:'100%', height:'auto'}} role="img"
+               aria-label="Норматив по технологической карте, фактический расход, отклонение и его причина">
+            <defs><marker id="arE" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="var(--ac)" /></marker></defs>
+            {flow.map((f, i) => {
+              const x = i * (W + G), last = i === 3;
+              return (
+                <g key={i}>
+                  <g className="pop" style={D(220 + i*130)}>
+                    <rect x={x} y="10" width={W} height="98" rx="3"
+                          fill={last ? 'var(--ac)' : 'var(--acsoft)'} stroke="var(--ac)" strokeWidth={last ? 2.4 : 1.4} />
+                    <text className="t-lbl" x={x + 22} y={f[1] ? 50 : 66} style={{fill: last ? 'var(--white)' : 'var(--ink)'}}>{f[0]}</text>
+                    {f[1] && <text className="t-lbl" x={x + 22} y="78" style={{fill: last ? 'var(--white)' : 'var(--ink)'}}>{f[1]}</text>}
+                  </g>
+                  {i < 3 && <path className="dw" style={D(300 + i*130)} d={`M${x + W + 6} 59 L${x + W + G - 8} 59`} fill="none" stroke="var(--ac)" strokeWidth="1.8" markerEnd="url(#arE)" />}
+                </g>
+              );
+            })}
+          </svg>
+
+          <div>
+            <div className="lbl ac rv" style={{...D(740), marginBottom:'1.6vh'}}>Причины, которые система разделяет автоматически</div>
+            <div className="causes">
+              {causes.map((c, i) => (
+                <div className="cause rv" style={D(790 + i*110)} key={i}>
+                  <div className="h">{c[0]}</div>
+                  <p>{c[1]}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      <Src></Src>
+    </div>
+  );
+}
+
+/* ======== 13 · дорожная карта ======== */
+function SRoad(){
+  const X0 = 250, W = 700, WK = 8, sx = w => X0 + W * w / WK;
+  const bars = [
+    {l:'Выбор инициатив и доступы', a:0, b:1, c:'var(--ac)'},
+    {l:'Базовый замер', a:1, b:2, c:'var(--ac)'},
+    {l:'Разработка MVP, до трёх треков', a:2, b:4, c:'var(--ac2)'},
+    {l:'Пилот на реальных процессах', a:4, b:6, c:'var(--ac2)'},
+    {l:'Решение о масштабировании', a:6, b:8, c:'var(--ac3)'},
+  ];
+  return (
+    <div className="slide">
+      <Head eyebrow="Дорожная карта" title="После выбора инициатив запускаем до трёх параллельных треков"
+        sub={<>За 8 недель мы не строим семь систем, а проверяем выбранные инициативы на реальных данных. По A1 трек идёт быстрее, потому что прототип уже существует.</>} />
+      <div className="s-body">
+        <svg className="viz" viewBox="0 0 990 300" preserveAspectRatio="xMidYMid meet" role="img"
+             aria-label="Дорожная карта пилота на восемь недель: выбор инициатив, базовый замер, разработка MVP, пилот и решение о масштабировании">
+          {[0,2,4,6,8].map(w => (
+            <g key={w} className="rv" style={D(160 + w*30)}>
+              <line x1={sx(w)} y1="34" x2={sx(w)} y2="248" stroke="var(--rule)" />
+              <text className="t-ax" x={sx(w)} y="24" textAnchor="middle">{w === 0 ? 'старт' : w + ' нед.'}</text>
+            </g>
+          ))}
+          {bars.map((b, i) => {
+            const y = 46 + i*40;
+            return (
+              <g key={i}>
+                <text className="t-sub" x="0" y={y + 22} style={{fill:'var(--ink)', fontWeight:600}}>{b.l}</text>
+                <rect className="gx" style={{...D(280 + i*120), transformOrigin:`${sx(b.a)}px 0px`}}
+                      x={sx(b.a) + 3} y={y} width={sx(b.b) - sx(b.a) - 6} height="30" rx="3" fill={b.c} />
+              </g>
+            );
+          })}
+          <g className="rv" style={D(880)}>
+            <line x1={X0} y1="248" x2={sx(8)} y2="248" stroke="var(--ink)" strokeWidth="1.6" />
+            <text className="t-sub" x="0" y="284">Решение по каждой инициативе: масштабировать, доработать или остановить.</text>
+          </g>
+        </svg>
+      </div>
+      <Src></Src>
+    </div>
+  );
+}
+
+/* ======== 14 · следующие шаги ======== */
+function SEnd(){
+  const steps = [
+    ['01','Выбор инициатив и доступы','неделя 1','Совместно выбираем 2–3 приоритетные инициативы, определяем пилотные объекты, владельцев процессов и необходимые данные.', 0],
+    ['02','Базовый замер','недели 1–2','Фиксируем текущий процесс и исходные показатели, чтобы эффект пилота можно было измерить.', 0],
+    ['03','Разработка MVP','недели 2–4','Три рабочих трека параллельно собирают и проверяют MVP выбранных инициатив. По A1 дорабатываем уже существующий прототип.', 1],
+    ['04','Пилот на реальных процессах','недели 4–6','Запускаем решения на ограниченном числе объектов, собираем фактические данные и корректируем продукт.', 0],
+    ['05','Решение о масштабировании','недели 6–8','Сравниваем результаты с базовым уровнем и по каждой инициативе принимаем решение: масштабировать, доработать или остановить.', 0],
+  ];
+  return (
+    <div className="slide">
+      <Head eyebrow="Следующие шаги" title="Следующие шаги" />
+      <div className="s-body">
+        <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'3.4vh'}}>
+          <div className="nda rv" style={D(180)}>
+            <div className="big">Чтобы запустить несколько инициатив параллельно, нам нужны ещё 3 человека. По ним ждём подписания NDA.</div>
+            <p>После подписания NDA каждый сможет вести отдельный рабочий трек параллельно.</p>
+          </div>
+
+          <div className="finsteps">
+            {steps.map((s, i) => (
+              <div className="fs rv" data-hot={s[4] ? '1' : '0'} style={D(280 + i*110)} key={s[0]}>
+                <span className="n">{s[0]}</span>
+                <span className="t">{s[1]}</span>
+                <span className="w">{s[2]}</span>
+                <p>{s[3]}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="hero-stats rv" style={{...D(860), marginTop:0, borderTopColor:'var(--ac)'}}>
+            <div><em>+3</em><span>человека в команде</span></div>
+            <div><em>до 3</em><span>параллельных треков</span></div>
+            <div><em>6–8</em><span>недель до решения о масштабировании</span></div>
+          </div>
+        </div>
+      </div>
+      <Src>Цель ближайших 1–2 месяцев: не построить семь полноценных систем, а быстро проверить выбранные инициативы на реальных данных и определить, какие из них стоит масштабировать.</Src>
     </div>
   );
 }
@@ -1079,27 +919,24 @@ function SEnd(){
 /* ======== дека ======== */
 function App(){
   const [i, setI] = useState(0);
-  const goId = useCallback(id => {
-    const map = {A1:5, A2:6, A3:7, A4:8, B1:10, B2:11, B3:12};
-    if(map[id] !== undefined) setI(map[id]);
-  }, []);
+  const MAP = {A1:4, A2:5, A3:6, A4:7, B1:9, B2:10, B3:11};
+  const goId = useCallback(id => { if(MAP[id] !== undefined) setI(MAP[id]); }, []);
 
   const SLIDES = [
-    {n:'Титул',        el:<STitle go={goId} />},
-    {n:'Разрыв',       el:<SGap />},
-    {n:'Доказательность', el:<STiers />},
-    {n:'Карта',        el:<SMap />},
-    {n:'Охрана',      el:<STiles unit="Охрана" cols={4} go={goId} title="Четыре направления" sub={<>A1 — ядро и первый приоритет: прототип уже есть. A4 независим и запускается параллельно.</>} />},
-    {n:'A1',           el:<SA1 />},
-    {n:'A2',           el:<SA2 />},
-    {n:'A3',           el:<SA3 />},
-    {n:'A4',           el:<SA4 />},
-    {n:'Питание',      el:<STiles unit="Питание" cols={3} go={goId} title="Три направления" sub={<>B1 — фундамент: без него B2 и B3 не дадут аналитики. B2 требует наибольшей перестройки и идёт последним.</>} />},
-    {n:'B1',           el:<SB1 />},
-    {n:'B2',           el:<SB2 />},
-    {n:'B3',           el:<SB3 />},
-    {n:'Приоритеты',   el:<SPrio go={goId} />},
-    {n:'Решение',      el:<SEnd />},
+    {n:'Титул',           el:<STitle go={goId} />},
+    {n:'Постановка',      el:<SGap />},
+    {n:'Карта',           el:<SMap />},
+    {n:'МегаЩит',         el:<STiles unit="МегаЩит" cols={4} go={goId} title="МегаЩит: четыре инициативы" />},
+    {n:'A1',              el:<SA1 />},
+    {n:'A2',              el:<SA2 />},
+    {n:'A3',              el:<SA3 />},
+    {n:'A4',              el:<SA4 />},
+    {n:'СН-Торг',         el:<STiles unit="СН-Торг" cols={3} go={goId} title="СН-Торг: три инициативы" />},
+    {n:'B1',              el:<SB1 />},
+    {n:'B2',              el:<SB2 />},
+    {n:'B3',              el:<SB3 />},
+    {n:'Дорожная карта',  el:<SRoad />},
+    {n:'Следующие шаги',  el:<SEnd />},
   ];
   const last = SLIDES.length - 1;
   const step = useCallback(d => setI(v => Math.min(last, Math.max(0, v + d))), [last]);
@@ -1124,7 +961,7 @@ function App(){
     <div className="stage">
       <div key={i} style={{flex:1, minHeight:0, display:'flex'}}>{SLIDES[i].el}</div>
       <div className="bar">
-        <div className="brand">Охрана · Питание</div>
+        <button className="allbtn" data-here={i === 0 ? '1' : '0'} onClick={() => setI(0)}>Все идеи</button>
         <div className="ticks">
           {SLIDES.map((s, k) => (
             <button className="tick" key={k} data-on={k === i ? '1' : '0'} onClick={() => setI(k)} title={s.n} aria-label={s.n}><i /></button>
@@ -1132,8 +969,8 @@ function App(){
         </div>
         <div className="count"><b>{String(i+1).padStart(2,'0')}</b> / {SLIDES.length}</div>
         <div className="btns">
-          <button onClick={() => step(-1)} disabled={i === 0} aria-label="Назад">←</button>
-          <button onClick={() => step(1)} disabled={i === last} aria-label="Вперёд">→</button>
+          <button onClick={() => step(-1)} disabled={i === 0} aria-label="Предыдущий слайд">←</button>
+          <button onClick={() => step(1)} disabled={i === last} aria-label="Следующий слайд">→</button>
         </div>
       </div>
     </div>
